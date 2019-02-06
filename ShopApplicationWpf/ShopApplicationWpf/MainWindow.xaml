@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="txtText" HorizontalAlignment="Left" Height="23" Margin="114,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="114,125,0,0" Click="Button_Click"/>
+        <Label x:Name="lblText" Content="{Binding Path=model.Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,66,0,0"/>
+
     </Grid>
 </Window>

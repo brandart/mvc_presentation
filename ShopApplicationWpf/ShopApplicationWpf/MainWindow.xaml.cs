@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ShopApplicationWpf.Controller;
+using ShopApplicationWpf.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,18 @@ namespace ShopApplicationWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        myController _controller = new myController();
+
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = _controller;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _controller.setName(txtText.Text);
         }
     }
 }
