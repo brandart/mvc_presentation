@@ -22,18 +22,10 @@ namespace ShopApplicationWpf
     /// </summary>
     public partial class MainWindow : Window
     {
-        myController _controller = new myController();
-
-
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = _controller;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _controller.setName(txtText.Text);
-        }
     }
 }

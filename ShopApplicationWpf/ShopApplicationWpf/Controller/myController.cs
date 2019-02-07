@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace ShopApplicationWpf.Controller
 {
-    class myController
+    class MyController: ObservableObject
     {
-        public myModel model { get; private set; } 
+        // == immutable 
+        public MyModel Model { get; }
+
+        public DelegateCommand SetNameCommand { get; }
+
+
+        public MyController()
+        {
+            Model = new MyModel();
+            SetNameCommand = new DelegateCommand(Model, name => Model.Name = (string)name, (name) => Model.Name != "disabled");
+        }
+
         
-
-        public myController()
-        {
-            model = new myModel();
-        }
-
-        public void setName(String s)
-        {
-            model.Name = s;
-        }
 
     }
 }

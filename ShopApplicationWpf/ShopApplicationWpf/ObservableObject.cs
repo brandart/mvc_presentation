@@ -11,12 +11,9 @@ namespace ShopApplicationWpf.Model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void onPropertyChanged(String name)
+        protected void RaisePropertyChanged(String name)
         {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }
