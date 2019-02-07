@@ -1,0 +1,730 @@
+{
+	"info": {
+		"name": "MVC_Collection",
+		"_postman_id": "ee68b00f-e7d1-f648-7f87-35242e529801",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bill: findAll()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/bills",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"bills"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bills: create()",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"2019-02-07\",\n    \"discount\": 0,\n    \"car\": {\n        \"idCar\": 2\n    },\n    \"customer\": {\n        \"idCustomer\": 1\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/bills",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"bills"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bills: findById()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/bills/7",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"bills",
+						"7"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Bills: delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/bills/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"bills",
+						"6"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cars: findAll()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cars",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cars"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cars: findbyid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cars/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cars",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cars: update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"A4\",\n    \"name\": \"Audi\",\n    \"price\": 2220\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cars/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cars",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cars: created",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"X3\",\n    \"name\": \"BMW\",\n    \"price\": 24220\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cars",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cars"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cars: delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cars/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cars",
+						"6"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cities: findAll()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cities",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cities"
+					]
+				},
+				"description": "City: findAll()"
+			},
+			"response": []
+		},
+		{
+			"name": "Cities: findbyid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cities/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cities",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cities: update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Perg\",\n    \"plz\": \"4321\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cities/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cities",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cities: create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bad Zell\",\n    \"plz\": \"4331\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cities",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cities"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Cities: delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/cities/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"cities",
+						"3"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Customers: findAll()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"customers"
+					]
+				},
+				"description": "Customers: listAll()"
+			},
+			"response": []
+		},
+		{
+			"name": "Customers: findbyid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/customers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"customers",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Customers: update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 19,\n    \"name\": \"Arthur Brandstetter\",\n    \"city\": {\n        \"idCity\": 2\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/customers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"customers",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Customers: create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 33,\n    \"name\": \"Arthur Brandstetter\",\n    \"city\": {\n        \"idCity\": 2\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"customers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Customers: delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/customers/8",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"customers",
+						"8"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Logentries: findAll()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/logentries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"logentries"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Logentries: findById()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/logentries/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"logentries",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Logentries: create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"datel\": \"2019-11-23\",\n\t\"logLevel\": 0,\n\t\"description\": \"Erfolgreich hinzugefügt\",\n\t\"worker\": {\n\t\t\"idWorker\": 2\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/logentries",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"logentries"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Logentry: update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"datel\": \"2019-02-13\",\n    \"description\": \"Erfolgreich hinzugefügt\",\n    \"logLevel\": 0,\n    \"worker\": {\n        \"idWorker\": 3\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/logentries/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"logentries",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Workers: findAll()",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/workers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"workers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Workers: findbyid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/workers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"workers",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Worker: delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/workers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"workers",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Worker: update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"admin\": 1,\n    \"age\": 234,\n    \"name\": \"John Doe\",\n    \"city\": {\n        \"idCity\": 2\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/workers/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"workers",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Workers: create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"admin\": 1,\n    \"age\": 234,\n    \"name\": \"Marcel Hirscher\",\n    \"city\": {\n        \"idCity\": 2\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/2019_02_06_MVC_Backend/rest/workers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2019_02_06_MVC_Backend",
+						"rest",
+						"workers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
