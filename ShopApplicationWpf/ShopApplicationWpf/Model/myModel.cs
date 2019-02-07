@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace ShopApplicationWpf.Model
 {
-    class myModel: ObservableObject
+    class MyModel: ObservableObject
     {
-        private String _name;
-        public String Name
+        private string _name;
+        public string Name
         {
             get
             {
-                if (string.IsNullOrEmpty(_name))
-                    return "Unknown";
-                return _name;
+                return _name ?? "Unknown";
             }
             set
             {
-                _name = value;
-                onPropertyChanged("Name");
+                if(_name != value)
+                {
+                    _name = value;
+                    RaisePropertyChanged("Name");
+                }
+                
             }
         }
 

@@ -55,8 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\myController.cs" />
-    <Compile Include="Model\myModel.cs" />
+    <Compile Include="Controller\MyController.cs" />
+    <Compile Include="Controller\DelegateCommand.cs" />
+    <Compile Include="Controller\SetNameCommand.cs" />
+    <Compile Include="Model\MyModel.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
