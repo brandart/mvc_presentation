@@ -16,7 +16,7 @@ namespace V02_MVC.Controller
         public LoginController()
         {
             Model = new LoginModel();
-            LoginCommand = new DelegateCommand(Model, logedIn => Model.LogedIn = (bool)logedIn,(name) => Model.LogedIn);
+            LoginCommand = new DelegateCommand(Model, username => Model.Login((string)username) ,(_) => !Model.LogedIn);
         }
     }
 }

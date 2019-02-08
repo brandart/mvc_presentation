@@ -41,7 +41,15 @@ namespace V02_MVC.Model
 
         public LoginModel()
         {
+            LogedIn = false;
+        }
 
+        public void Login(string Name)
+        {
+            if(Name == "asdf")
+            {
+                LogedIn = true;
+            }
         }
     }
 }

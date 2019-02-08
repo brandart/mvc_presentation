@@ -18,7 +18,7 @@ namespace ShopApplicationWpf.Controller
         public MyController()
         {
             Model = new MyModel();
-            SetNameCommand = new DelegateCommand(Model, name => Model.Name = (string)name, (name) => Model.Name != "disabled");
+            SetNameCommand = new DelegateCommand(Model, name => Model.Name = (string)name, (_) => Model.Name != "disabled");
         }
 
         

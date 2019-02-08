@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using V02_MVC.Controller;
 
 namespace V02_MVC.View
 {
@@ -20,9 +21,12 @@ namespace V02_MVC.View
     /// </summary>
     public partial class Login : Page
     {
+        LoginController c = new LoginController();
         public Login()
         {
             InitializeComponent();
+            DataContext = c;
+
         }
     }
 }
