@@ -13,6 +13,7 @@ namespace V02_MVC.Controller
 
         public DelegateCommand LoginCommand { get; }
 
+
         public LoginController()
         {
             Model = new LoginModel();

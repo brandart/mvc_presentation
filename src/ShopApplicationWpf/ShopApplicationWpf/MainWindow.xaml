@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ctrl="clr-namespace:ShopApplicationWpf.Controller"
+        xmlns:ctrrl="clr-namespace:ShopApplicationWpf.Controller"
         xmlns:local="clr-namespace:ShopApplicationWpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
-        <ctrl:MyController />
+        <ctrrl:MyController />
     </Window.DataContext>
     <Grid>
         <TextBox x:Name="txtText" HorizontalAlignment="Left" Height="23" Margin="114,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>

@@ -12,28 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using V02_MVC.Controller;
 
 namespace V02_MVC.View
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Home.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class Home : Page
     {
-        LoginController controller;
-        public Login()
+        public Home()
         {
             InitializeComponent();
-            controller = (LoginController)DataContext;
-            
-            // event when change
-            //controller.Model.LogedIn -> navigate to home.xaml
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Home());
         }
     }
 }
