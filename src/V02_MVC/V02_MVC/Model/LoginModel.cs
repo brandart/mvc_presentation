@@ -73,8 +73,8 @@ namespace V02_MVC.Model
             WorkerDto w = workers.Find(x => x.Name == Name);
             if (w != null)
             {
-                _isAdmin = true;
-                LogedIn = w.Admin;
+                _isAdmin = w.Admin;
+                LogedIn = true;
             }
         }
     }

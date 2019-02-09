@@ -24,7 +24,24 @@ namespace V02_MVC.View
         public Home(bool b)
         {
             InitializeComponent();
-            IsAdmin = b;
+            btnLogEntries.IsEnabled = b;
+            btnWorkers.IsEnabled = b;
+
+        }
+
+        private void btnWorkers_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btnCustomers_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Customers());
+        }
+
+        private void btnCars_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Cars());
         }
     }
 }

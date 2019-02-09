@@ -9,6 +9,13 @@
       Title="Home">
 
     <Grid>
-        
+        <Button x:Name="btnBills" Content="Bills" HorizontalAlignment="Center" Margin="341,322,332,0" VerticalAlignment="Top" Width="127" Height="47"/>
+        <Button x:Name="btnCars" Content="Cars" HorizontalAlignment="Center" Margin="342,62,332,0" VerticalAlignment="Top" Width="126" Height="47" Click="btnCars_Click"/>
+        <Button x:Name="btnCustomers" Content="Customers" HorizontalAlignment="Center" Margin="342,114,332,0" VerticalAlignment="Top" Width="126" Height="47" Click="btnCustomers_Click"/>
+        <Button x:Name="btnWorkers" Content="Workers" HorizontalAlignment="Center" Margin="342,166,332,0" VerticalAlignment="Top" Width="126" Height="47" Click="btnWorkers_Click"/>
+        <Button x:Name="btnLogEntries" Content="Log Entries" HorizontalAlignment="Center" Margin="342,218,332,0" VerticalAlignment="Top" Width="126" Height="47"/>
+        <Button x:Name="btnCities" Content="Cities" HorizontalAlignment="Center" Margin="342,270,332,0" VerticalAlignment="Top" Width="126" Height="47"/>
+        <Label Content="Home" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+
     </Grid>
 </Page>

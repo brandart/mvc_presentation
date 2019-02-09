@@ -58,13 +58,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\CarController.cs" />
     <Compile Include="Controller\DelegateCommand.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Model\CarDto.cs" />
+    <Compile Include="Model\CarModel.cs" />
     <Compile Include="Model\CityDto.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\RestModel.cs" />
     <Compile Include="Model\WorkerDto.cs" />
     <Compile Include="ObservableObject.cs" />
+    <Compile Include="View\Cars.xaml.cs">
+      <DependentUpon>Cars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customers.xaml.cs">
+      <DependentUpon>Customers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -83,6 +92,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Cars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Customers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
