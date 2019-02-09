@@ -62,6 +62,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Model\CityDto.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\RestModel.cs" />
     <Compile Include="Model\WorkerDto.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="View\Home.xaml.cs">

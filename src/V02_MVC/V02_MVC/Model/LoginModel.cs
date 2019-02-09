@@ -13,6 +13,8 @@ namespace V02_MVC.Model
 
         List<WorkerDto> workers;
 
+        private RestModel rest;
+
         private bool _logedIn;
 
         public bool LogedIn
@@ -62,25 +64,8 @@ namespace V02_MVC.Model
 
         private async Task initAsync()
         {
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri("http://localhost:8080/");
-
-            HttpResponseMessage response = client.GetAsync("2019_02_06_MVC_Backend/rest/workers").Result;  // Blocking call!  
-            if (response.IsSuccessStatusCode)
-            {
-                Console.WriteLine("Request Message Information:- \n\n" + response.RequestMessage + "\n");
-                Console.WriteLine("Response Message Header \n\n" + response.Content.Headers + "\n");
-                // Get the response
-                var customerJsonString = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Your response data is: " + customerJsonString);
-
-                // Deserialise the data (include the Newtonsoft JSON Nuget package if you don't already have it)
-                var deserialized = JsonConvert.DeserializeObject<IEnumerable<WorkerDto>>(custome‌​rJsonString);
-                // Do something with it
-                
-                workers = deserialized.ToList<WorkerDto>();
-            }
+            rest = RestModel.Instance;
+            workers =  await rest.GetWorkers();
         }
 
         public void Login(string Name)
@@ -89,13 +74,8 @@ namespace V02_MVC.Model
             if (w != null)
             {
                 _isAdmin = true;
-                LogedIn = true;
+                LogedIn = w.Admin;
             }
-        }
-
-        private void checkName(string name)
-        {
-            
         }
     }
 }

@@ -20,9 +20,11 @@ namespace V02_MVC.View
     /// </summary>
     public partial class Home : Page
     {
-        public Home()
+        bool IsAdmin;
+        public Home(bool b)
         {
             InitializeComponent();
+            IsAdmin = b;
         }
     }
 }
