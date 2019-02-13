@@ -11,9 +11,13 @@ namespace V02_MVC.Controller
     {
         public CarModel Model { get; }
 
+        public DelegateCommand AddCarCommand { get; }
+
         public CarController()
         {
             Model = new CarModel();
+
+            AddCarCommand = new DelegateCommand(Model, (car) => Model.AddCar(((CarDto)car).Name), e => true);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace V02_MVC.Model
 {
-    class CarModel
+    class CarModel: ObservableObject
     {
         public List<CarDto> _cars;
 
@@ -21,6 +21,11 @@ namespace V02_MVC.Model
         public async void init()
         {
             _cars = await rest.GetCars();
+        }
+
+        public void AddCar(string name)
+        {
+
         }
     }
 }

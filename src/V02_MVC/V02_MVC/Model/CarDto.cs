@@ -8,9 +8,9 @@ namespace V02_MVC.Model
 {
     class CarDto
     {
-        public int IdCar;
-        public string Description;
-        public string Name;
-        public double Price;
+        public int IdCar { get; }
+        public string Description { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
     }
 }
