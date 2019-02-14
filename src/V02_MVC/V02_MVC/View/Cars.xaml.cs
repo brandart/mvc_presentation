@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using V02_MVC.Controller;
+using V02_MVC.Model;
 
 namespace V02_MVC.View
 {
@@ -22,11 +23,12 @@ namespace V02_MVC.View
     public partial class Cars : Page
     {
         CarController Controller;
+        CarDto NewCarDto { get; set; }
         public Cars()
         {
             InitializeComponent();
             Controller = new CarController();
-
+            NewCarDto = new CarDto();
             dtgCars.ItemsSource = Controller.Model._cars;
         }
     }

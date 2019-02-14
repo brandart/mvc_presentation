@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace V02_MVC.Model
 {
-    class CarDto
+    class CarDto: ObservableObject
     {
+        // TODO implement notifychanged methods
         public int IdCar { get; }
         public string Description { get; set; }
         public string Name { get; set; }

@@ -7,15 +7,19 @@ using V02_MVC.Model;
 
 namespace V02_MVC.Controller
 {
-    class CarController
+    class CarController: ObservableCollection 
     {
-        public CarModel Model { get; }
+
+        // aufbau der benutzer
+        public CarDAL Model { get; }
+
+        public List<CarDto> Cars;
 
         public DelegateCommand AddCarCommand { get; }
 
         public CarController()
         {
-            Model = new CarModel();
+            Model = new CarDAL();
 
             AddCarCommand = new DelegateCommand(Model, (car) => Model.AddCar(((CarDto)car).Name), e => true);
         }

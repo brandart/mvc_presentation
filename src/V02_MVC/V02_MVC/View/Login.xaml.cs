@@ -26,14 +26,17 @@ namespace V02_MVC.View
         {
             InitializeComponent();
             controller = (LoginController)DataContext;
-            
+
+            controller.Model.PropertyChanged += Model_PropertyChanged;
             // event when change
             //controller.Model.LogedIn -> navigate to home.xaml
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            this.NavigationService.Navigate(new Home(controller.Model.IsAdmin));
+            if(e.PropertyName == "LogedIn" && controller.Model.LogedIn)
+                this.NavigationService.Navigate(new Home(controller.Model.IsAdmin));
         }
+
     }
 }

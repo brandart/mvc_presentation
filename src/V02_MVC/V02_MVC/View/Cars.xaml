@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:V02_MVC.View"
+      xmlns:contr="clr-namespace:V02_MVC.Controller"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Cars">
@@ -27,7 +28,7 @@
         <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,195,0,0"/>
         <Label Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,248,0,0"/>
         <Label Content="Price" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,294,0,0"/>
-        <Button x:Name="btnAddCar" Content="add Car" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,365,0,0"/>
+        <Button x:Name="btnAddCar" Content="add Car"  Command="{Binding Path=AddCarCommand}" CommandParameter="{Binding NewCarDto}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,365,0,0"/>
 
     </Grid>
 </Page>
