@@ -22,14 +22,9 @@ namespace V02_MVC.View
     /// </summary>
     public partial class Cars : Page
     {
-        CarController Controller;
-        CarDto NewCarDto { get; set; }
         public Cars()
         {
             InitializeComponent();
-            Controller = new CarController();
-            NewCarDto = new CarDto();
-            dtgCars.ItemsSource = Controller.Model._cars;
         }
     }
 }

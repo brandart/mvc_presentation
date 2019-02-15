@@ -12,9 +12,9 @@ namespace V02_MVC.Model
     {
         private static RestModel _instance;
 
-        private List<WorkerDto> Workers;
+        private List<Worker> Workers;
 
-        private List<CarDto> Cars;
+        private List<Car> Cars;
 
         private HttpClient Client;
 
@@ -34,6 +34,8 @@ namespace V02_MVC.Model
                 return _instance;
             }
         }
+
+
         private async Task fetchWorkers()
         {
             HttpResponseMessage Response = Client.GetAsync("2019_02_06_MVC_Backend/rest/workers").Result;
@@ -44,10 +46,10 @@ namespace V02_MVC.Model
                 var customerJsonString = await Response.Content.ReadAsStringAsync();
 
                 // Deserialise the data (include the Newtonsoft JSON Nuget package if you don't already have it)
-                var deserialized = JsonConvert.DeserializeObject<IEnumerable<WorkerDto>>(custome‌​rJsonString);
+                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Worker>>(custome‌​rJsonString);
                 // Do something with it
 
-                Workers = deserialized.ToList<WorkerDto>();
+                Workers = deserialized.ToList<Worker>();
             }
         }
 
@@ -58,16 +60,16 @@ namespace V02_MVC.Model
             {
                 // Get the response
                 var customerJsonString = await Response.Content.ReadAsStringAsync();
-                var deserialized = JsonConvert.DeserializeObject<IEnumerable<CarDto>>(custome‌​rJsonString);
+                var deserialized = JsonConvert.DeserializeObject<IEnumerable<Car>>(custome‌​rJsonString);
                 // Do something with it
 
-                Cars = deserialized.ToList<CarDto>();
+                Cars = deserialized.ToList<Car>();
             }
         }
 
 
 
-        public async Task<List<WorkerDto>> GetWorkers()
+        public async Task<List<Worker>> GetWorkers()
         {
             if(Workers == null)
             {
@@ -77,7 +79,7 @@ namespace V02_MVC.Model
             return Workers;
         }
 
-        public async Task<List<CarDto>> GetCars()
+        public async Task<List<Car>> GetCars()
         {
             if (Cars == null)
             {

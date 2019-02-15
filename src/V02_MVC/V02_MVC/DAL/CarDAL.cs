@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace V02_MVC.Model
 {
-    class CarModel: ObservableObject
+    class CarDAL: ObservableObject
     {
-        public List<CarDto> _cars;
+        public List<Car> _cars;
 
         public RestModel rest;
 
-        public CarModel()
+        public CarDAL()
         {
             rest = RestModel.Instance;
             init();

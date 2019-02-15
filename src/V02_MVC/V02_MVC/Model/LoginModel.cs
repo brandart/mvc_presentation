@@ -5,15 +5,23 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using V02_MVC.DAL;
 
 namespace V02_MVC.Model
 {
     class LoginModel: ObservableObject
     {
 
-        List<WorkerDto> workers;
+        private List<Worker> _workers;
+        public List<Worker> Workers
+        {
+            get
+            {
+                return _workers;
+            }
+        }
 
-        private RestModel rest;
+        private MyDAL dal;
 
         private bool _logedIn;
 
@@ -59,18 +67,23 @@ namespace V02_MVC.Model
         public LoginModel()
         {
             LogedIn = false;
-            initAsync();
+            initData();
         }
 
-        private async Task initAsync()
+        private async void initData()
         {
-            rest = RestModel.Instance;
-            workers =  await rest.GetWorkers();
+            dal = MyDAL.Instance;
+            string JsonWorker =  await dal.GetAsync("2019_02_06_MVC_Backend/rest/workers");
+            var deserialized = JsonConvert.DeserializeObject<IEnumerable<Worker>>(JsonWorker);
+            // Do something with it
+
+            _workers = deserialized.ToList<Worker>();
+
         }
 
         public void Login(string Name)
         {
-            WorkerDto w = workers.Find(x => x.Name == Name);
+            Worker w = _workers.Find(x => x.Name == Name);
             if (w != null)
             {
                 _isAdmin = w.Admin;
