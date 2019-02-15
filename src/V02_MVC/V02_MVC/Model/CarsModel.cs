@@ -50,7 +50,7 @@ namespace V02_MVC.Model
             // Wrap our JSON inside a StringContent which then can be used by the HttpClient class
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
-            Dal.PostAsync("2019_02_06_MVC_Backend/rest/cars", httpContent);
+            var response = await Dal.PostAsync("2019_02_06_MVC_Backend/rest/cars", httpContent);
         }
     }
 }

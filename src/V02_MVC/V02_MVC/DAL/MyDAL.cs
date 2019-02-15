@@ -42,10 +42,10 @@ namespace V02_MVC.DAL
             return JsonString;
         }
 
-        public async void PostAsync(string Url, StringContent HttpContent)
+        public async Task<HttpResponseMessage> PostAsync(string Url, StringContent HttpContent)
         {
             var HttpResponse = await HttpClient.PostAsync(Url, HttpContent);
-
+            return HttpResponse;
         }
     }
 }

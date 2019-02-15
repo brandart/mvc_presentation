@@ -40,7 +40,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,16 +58,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\CarController.cs" />
+    <Compile Include="Controller\CarsController.cs" />
     <Compile Include="Controller\DelegateCommand.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\MyDAL.cs" />
     <Compile Include="Model\CarsModel.cs" />
     <Compile Include="Object\Car.cs" />
-    <Compile Include="DAL\CarDAL.cs" />
     <Compile Include="Object\City.cs" />
     <Compile Include="Model\LoginModel.cs" />
-    <Compile Include="REST\RestModel.cs" />
     <Compile Include="Object\Worker.cs" />
     <Compile Include="ObservableCollection.cs" />
     <Compile Include="ObservableObject.cs" />

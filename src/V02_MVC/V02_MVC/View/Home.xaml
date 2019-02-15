@@ -5,17 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:V02_MVC.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Home">
+      d:DesignHeight="1200" d:DesignWidth="1920"
+      Title="Home"
+      >
 
-    <Grid>
-        <Button x:Name="btnBills" Content="Bills" HorizontalAlignment="Center" Margin="341,322,332,0" VerticalAlignment="Top" Width="127" Height="47"/>
-        <Button x:Name="btnCars" Content="Cars" HorizontalAlignment="Center" Margin="342,62,332,0" VerticalAlignment="Top" Width="126" Height="47" Click="btnCars_Click"/>
-        <Button x:Name="btnCustomers" Content="Customers" HorizontalAlignment="Center" Margin="342,114,332,0" VerticalAlignment="Top" Width="126" Height="47" Click="btnCustomers_Click"/>
-        <Button x:Name="btnWorkers" Content="Workers" HorizontalAlignment="Center" Margin="342,166,332,0" VerticalAlignment="Top" Width="126" Height="47" Click="btnWorkers_Click"/>
-        <Button x:Name="btnLogEntries" Content="Log Entries" HorizontalAlignment="Center" Margin="342,218,332,0" VerticalAlignment="Top" Width="126" Height="47"/>
-        <Button x:Name="btnCities" Content="Cities" HorizontalAlignment="Center" Margin="342,270,332,0" VerticalAlignment="Top" Width="126" Height="47"/>
-        <Label Content="Home" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+    <Grid HorizontalAlignment="Center" Height="1200" Width="1920" >
+        <Button x:Name="btnBills" Content="Bills" Margin="870,348,870,0" FontSize="24" VerticalAlignment="Top" Height="90"/>
+        <Button x:Name="btnCars" Content="Cars" Margin="870,158,0,0" Click="btnCars_Click" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Height="90" Width="180"/>
+        <Button x:Name="btnCustomers" Content="Customers" Margin="870,253,0,0" Click="btnCustomers_Click" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Height="90" Width="180"/>
+        <Button x:Name="btnWorkers" Content="Workers" HorizontalAlignment="Left" Margin="870,443,0,0" Width="180" Click="btnWorkers_Click" FontSize="24" VerticalAlignment="Top" Height="90"/>
+        <Button x:Name="btnCities" Content="Cities" Margin="870,633,870,0" FontSize="24" Height="90" VerticalAlignment="Top"/>
+        <Label Content="Home" HorizontalAlignment="Center" Margin="929,106,930,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Button x:Name="btnLogEntries" Content="Log Entries" HorizontalAlignment="Left" Margin="870,538,0,0" VerticalAlignment="Top" Width="180" FontSize="24" Height="90"/>
 
     </Grid>
 </Page>

@@ -7,7 +7,7 @@ using V02_MVC.Model;
 
 namespace V02_MVC.Controller
 {
-    class CarController 
+    class CarsController 
     {
 
         public CarsModel Model { get; }
@@ -15,7 +15,7 @@ namespace V02_MVC.Controller
 
         public DelegateCommand AddCarCommand { get; }
 
-        public CarController()
+        public CarsController()
         {
             Model = new CarsModel();
 

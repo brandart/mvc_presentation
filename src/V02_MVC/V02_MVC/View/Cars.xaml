@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:V02_MVC.View"
       xmlns:contr="clr-namespace:V02_MVC.Controller"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="613.636" d:DesignWidth="1173.295"
       Title="Cars">
     <Page.DataContext>
-        <contr:CarController></contr:CarController>
+        <contr:CarsController></contr:CarsController>
     </Page.DataContext>
 
     <Grid>
@@ -17,7 +17,7 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Cars" HorizontalAlignment="Center" Margin="377,10,377,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="34" Width="46"/>
+        <Label Content="Cars" Margin="564,10,563,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="34"/>
         <DataGrid x:Name="dtgCars" ItemsSource="{Binding Path=Model.Cars}" HorizontalAlignment="Center" AutoGenerateColumns="False" Height="100" Margin="5,72,10,0" VerticalAlignment="Top" Width="785">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -25,13 +25,18 @@
                 <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="txtName" Text="{Binding Path=Model.SelectedCar.Name}" HorizontalAlignment="Left" Height="23" Margin="10,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtDescr" Text="{Binding Path=Model.SelectedCar.Description}" HorizontalAlignment="Left" Height="23" Margin="10,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPrice" Text="{Binding Path=Model.SelectedCar.Price}" HorizontalAlignment="Left" Height="23" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,195,0,0"/>
-        <Label Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,248,0,0"/>
-        <Label Content="Price" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,294,0,0"/>
-        <Button x:Name="btnAddCar" Content="add Car"  Command="{Binding Path=AddCarCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,365,0,0"/>
+        <Expander Header="add Car" HorizontalAlignment="Left" Height="192" Margin="10,10,0,0" VerticalAlignment="Top" Width="336">
+            <Grid RenderTransformOrigin="0.254,0.882" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+                <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtName" Text="{Binding Model.SelectedCar.Name}" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,34,225,0"/>
+                <Label Content="Description" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtDescr" Text="{Binding Path=Model.SelectedCar.Description}" HorizontalAlignment="Left" Height="23" Margin="10,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Price" HorizontalAlignment="Left" Margin="14,112,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtPrice" Text="{Binding Path=Model.SelectedCar.Price}" HorizontalAlignment="Left" Height="23" Margin="10,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="btnAddCar" Content="add Car"  Command="{Binding Path=AddCarCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="244,136,0,0"/>
+
+            </Grid>
+        </Expander>
 
     </Grid>
 </Page>
