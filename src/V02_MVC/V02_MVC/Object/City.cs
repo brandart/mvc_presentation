@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace V02_MVC.Model
 {
-    class City: ObservableObject
+    public class City: ObservableObject
     {
         private int _idCity;
         public int IdCity

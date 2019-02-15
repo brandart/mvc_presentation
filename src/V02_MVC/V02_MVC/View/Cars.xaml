@@ -6,34 +6,36 @@
       xmlns:local="clr-namespace:V02_MVC.View"
       xmlns:contr="clr-namespace:V02_MVC.Controller"
       mc:Ignorable="d" 
-      d:DesignHeight="613.636" d:DesignWidth="1173.295"
+      d:DesignHeight="1200" d:DesignWidth="1920"
       Title="Cars">
     <Page.DataContext>
         <contr:CarsController></contr:CarsController>
     </Page.DataContext>
 
-    <Grid>
+    <Grid Opacity="0.985">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Cars" Margin="564,10,563,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="34"/>
-        <DataGrid x:Name="dtgCars" ItemsSource="{Binding Path=Model.Cars}" HorizontalAlignment="Center" AutoGenerateColumns="False" Height="100" Margin="5,72,10,0" VerticalAlignment="Top" Width="785">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Expander Header="add Car" HorizontalAlignment="Left" Height="192" Margin="10,10,0,0" VerticalAlignment="Top" Width="336">
+        <Label Content="Cars" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <ListView ItemsSource="{Binding Path=Model.Cars}" HorizontalAlignment="Left" Height="626" Margin="10,132,0,0" VerticalAlignment="Top" Width="488">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Expander Header="add Car" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
             <Grid RenderTransformOrigin="0.254,0.882" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtName" Text="{Binding Model.SelectedCar.Name}" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,34,225,0"/>
-                <Label Content="Description" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtDescr" Text="{Binding Path=Model.SelectedCar.Description}" HorizontalAlignment="Left" Height="23" Margin="10,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Label Content="Price" HorizontalAlignment="Left" Margin="14,112,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtPrice" Text="{Binding Path=Model.SelectedCar.Price}" HorizontalAlignment="Left" Height="23" Margin="10,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Button x:Name="btnAddCar" Content="add Car"  Command="{Binding Path=AddCarCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="244,136,0,0"/>
+                <TextBox x:Name="txtName" Text="{Binding Model.SelectedCar.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,214,0" Width="120"/>
+                <Label Content="Description" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtDescr" Text="{Binding Model.SelectedCar.Description}" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Price" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtPrice" Text="{Binding Model.SelectedCar.Price}" HorizontalAlignment="Left" Height="30" Margin="167,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="btnAddCar" Content="add Car"  Command="{Binding AddCarCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="244,179,0,0"/>
 
             </Grid>
         </Expander>

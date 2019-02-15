@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using V02_MVC.Model;
 
 namespace V02_MVC.View
 {
@@ -21,11 +22,12 @@ namespace V02_MVC.View
     public partial class Home : Page
     {
         bool IsAdmin;
-        public Home(bool b)
+        Worker LogedInWorker;
+        public Home(Worker b)
         {
             InitializeComponent();
-            btnLogEntries.IsEnabled = b;
-            btnWorkers.IsEnabled = b;
+            btnLogEntries.IsEnabled = b.Admin;
+            btnWorkers.IsEnabled = b.Admin;
 
         }
 

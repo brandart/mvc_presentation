@@ -64,6 +64,16 @@ namespace V02_MVC.Model
             }
         }
 
+        private Worker _logedInWorker;
+
+        public Worker LogedInWorker
+        {
+            get
+            {
+                return _logedInWorker;
+            }
+        }
+
         public LoginModel()
         {
             LogedIn = false;
@@ -86,6 +96,7 @@ namespace V02_MVC.Model
             Worker w = _workers.Find(x => x.Name == Name);
             if (w != null)
             {
+                _logedInWorker = w;
                 _isAdmin = w.Admin;
                 LogedIn = true;
             }

@@ -35,7 +35,7 @@ namespace V02_MVC.View
         private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if(e.PropertyName == "LogedIn" && controller.Model.LogedIn)
-                this.NavigationService.Navigate(new Home(controller.Model.IsAdmin));
+                this.NavigationService.Navigate(new Home(controller.Model.LogedInWorker));
         }
 
     }

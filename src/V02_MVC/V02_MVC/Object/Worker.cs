@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace V02_MVC.Model
 {
-    class Worker: ObservableObject
+    public class Worker: ObservableObject
     {
         private int _idWorker;
 

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -9,7 +10,7 @@ using V02_MVC.DAL;
 
 namespace V02_MVC.Model
 {
-    class CarsModel: ObservableCollection
+    class CarsModel: ObservableCollection<Car>
     {
         private List<Car> _cars;
         public List<Car> Cars
@@ -51,6 +52,8 @@ namespace V02_MVC.Model
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
             var response = await Dal.PostAsync("2019_02_06_MVC_Backend/rest/cars", httpContent);
+
+            _cars.Add(SelectedCar);
         }
     }
 }

@@ -17,6 +17,7 @@
         <Button x:Name="btnCities" Content="Cities" Margin="870,633,870,0" FontSize="24" Height="90" VerticalAlignment="Top"/>
         <Label Content="Home" HorizontalAlignment="Center" Margin="929,106,930,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Button x:Name="btnLogEntries" Content="Log Entries" HorizontalAlignment="Left" Margin="870,538,0,0" VerticalAlignment="Top" Width="180" FontSize="24" Height="90"/>
+        <Label Content="{Binding Path=LogedInWorker.Name}" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top" Height="52" Width="287" FontSize="24"/>
 
     </Grid>
 </Page>

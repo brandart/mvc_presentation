@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace V02_MVC
 {
-    class ObservableObject : INotifyPropertyChanged
+    public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

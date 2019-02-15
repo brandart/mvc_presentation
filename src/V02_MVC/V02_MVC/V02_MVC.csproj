@@ -67,7 +67,6 @@
     <Compile Include="Object\City.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Object\Worker.cs" />
-    <Compile Include="ObservableCollection.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="View\Cars.xaml.cs">
       <DependentUpon>Cars.xaml</DependentUpon>
