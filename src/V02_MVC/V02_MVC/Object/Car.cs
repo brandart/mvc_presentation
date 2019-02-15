@@ -9,7 +9,6 @@ namespace V02_MVC.Model
 {
     class Car: ObservableObject
     {
-        // TODO implement notifychanged methods
         private int _idCar;
 
         [JsonIgnore]

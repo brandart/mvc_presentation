@@ -12,8 +12,8 @@ namespace V02_MVC.Model
 {
     class CarsModel: ObservableCollection<Car>
     {
-        private List<Car> _cars;
-        public List<Car> Cars
+        private ObservableCollection<Car> _cars;
+        public ObservableCollection<Car> Cars
         {
             get
             {
@@ -39,7 +39,9 @@ namespace V02_MVC.Model
             var deserialized = JsonConvert.DeserializeObject<IEnumerable<Car>>(JsonCars);
             // Do something with it
 
-            _cars = deserialized.ToList<Car>();
+            List<Car> temp = deserialized.ToList<Car>();
+            _cars = new ObservableCollection<Car>(temp);
+
             SelectedCar = new Car();
         }
 
@@ -53,7 +55,7 @@ namespace V02_MVC.Model
 
             var response = await Dal.PostAsync("2019_02_06_MVC_Backend/rest/cars", httpContent);
 
-            _cars.Add(SelectedCar);
+            Cars.Add(SelectedCar);
         }
     }
 }
