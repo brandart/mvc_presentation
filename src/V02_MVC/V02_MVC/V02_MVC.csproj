@@ -63,6 +63,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\MyDAL.cs" />
     <Compile Include="Model\CarsModel.cs" />
+    <Compile Include="MyObservableCollection.cs" />
     <Compile Include="Object\Car.cs" />
     <Compile Include="Object\City.cs" />
     <Compile Include="Model\LoginModel.cs" />

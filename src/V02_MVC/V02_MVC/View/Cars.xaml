@@ -27,7 +27,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Expander Header="add Car" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
+        <Expander x:Name="expAddCar" Header="add Car" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
             <Grid RenderTransformOrigin="0.254,0.882" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtName" Text="{Binding Model.SelectedCar.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,214,0" Width="120"/>
