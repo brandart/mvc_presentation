@@ -15,11 +15,16 @@ namespace V02_MVC.Controller
 
         public DelegateCommand AddCarCommand { get; }
 
+        public DelegateCommand EditCarCommand { get; }
+
+        public DelegateCommand DeleteCarCommand { get; }
+
         public CarsController()
         {
             Model = new CarsModel();
 
-            AddCarCommand = new DelegateCommand(Model.SelectedCar, (_) => Model.AddCar(), e => Model.SelectedCar.Name != null );
+            AddCarCommand = new DelegateCommand(Model.CarToAdd, (_) => Model.AddCar(), e => Model.CarToAdd.Name != null );
+            DeleteCarCommand = new DelegateCommand(Model.SelectedCar, (_) => Model.DeleteCar(), e => Model.SelectedCar.TempIdCar == 0);
         }
     }
 }

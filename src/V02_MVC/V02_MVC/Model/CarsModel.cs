@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,8 @@ namespace V02_MVC.Model
             }
         }
         
+        public Car CarToAdd { get; set; }
+
         public Car SelectedCar { get; set; }
 
         private MyDAL Dal;
@@ -43,21 +46,32 @@ namespace V02_MVC.Model
             List<Car> temp = deserialized.ToList<Car>();
             _cars = new ObservableCollection<Car>(temp);
 
+            CarToAdd = new Car();
             SelectedCar = new Car();
         }
 
         public async void AddCar()
         {
             // Serialize our concrete class into a JSON String
-            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(SelectedCar));
-            
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(CarToAdd));
+
+
+
             // Wrap our JSON inside a StringContent which then can be used by the HttpClient class
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
             var response = await Dal.PostAsync("2019_02_06_MVC_Backend/rest/cars", httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                Cars.Add(CarToAdd);
+                RaisePropertyChanged("AddCar");
+                CarToAdd = new Car();
+            }
+        }
 
-            Cars.Add(SelectedCar);
-            RaisePropertyChanged("AddCar");
+        public void DeleteCar()
+        {
+
         }
     }
 }

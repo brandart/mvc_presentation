@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Cars" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <ListView ItemsSource="{Binding Path=Model.Cars}" HorizontalAlignment="Left" Height="626" Margin="10,132,0,0" VerticalAlignment="Top" Width="488">
+        <ListView SelectionMode="Single" SelectedItem="{Binding Path=Model.SelectedCar}" ItemsSource="{Binding Path=Model.Cars}" HorizontalAlignment="Left" Height="514" Margin="10,132,0,0" VerticalAlignment="Top" Width="708">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
@@ -30,15 +30,29 @@
         <Expander x:Name="expAddCar" Header="add Car" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
             <Grid RenderTransformOrigin="0.254,0.882" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtName" Text="{Binding Model.SelectedCar.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,214,0" Width="120"/>
+                <TextBox x:Name="txtName" Text="{Binding Model.CarToAdd.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,214,0" Width="120"/>
                 <Label Content="Description" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtDescr" Text="{Binding Model.SelectedCar.Description}" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtDescr" Text="{Binding Model.CarToAdd.Description}" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Price" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtPrice" Text="{Binding Model.SelectedCar.Price}" HorizontalAlignment="Left" Height="30" Margin="167,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtPrice" Text="{Binding Model.CarToAdd.Price}" HorizontalAlignment="Left" Height="30" Margin="167,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Button x:Name="btnAddCar" Content="add Car"  Command="{Binding AddCarCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="244,179,0,0"/>
 
             </Grid>
         </Expander>
+        <Expander x:Name="expEditCar" Header="edit Car" HorizontalAlignment="Left" Height="251" Margin="372,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
+            <Grid RenderTransformOrigin="0.254,0.882" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+                <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtEditName" Text="{Binding Model.SelectedCar.Name, Mode=TwoWay}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,214,0" Width="120"/>
+                <Label Content="Description" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtEditDescr" Text="{Binding Model.SelectedCar.Description}" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Price" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtEditPrice" Text="{Binding Model.SelectedCar.Price}" HorizontalAlignment="Left" Height="30" Margin="167,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="btnEditCar" Content="Save"  Command="{Binding EditCarCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="244,179,0,0"/>
+
+            </Grid>
+        </Expander>
+        <Button x:Name="btnExpEditCar" Content="Edit Car" HorizontalAlignment="Left" Margin="10,651,0,0" VerticalAlignment="Top" Width="116" Height="38" FontSize="24"/>
+        <Button x:Name="btnDelete" Content="Delete Car" Command="{Binding DeleteCarCommand}" HorizontalAlignment="Left" Margin="131,651,0,0" VerticalAlignment="Top" Width="119" Height="38" FontSize="24"/>
 
     </Grid>
 </Page>

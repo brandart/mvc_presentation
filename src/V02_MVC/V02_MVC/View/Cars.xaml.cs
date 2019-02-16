@@ -26,15 +26,15 @@ namespace V02_MVC.View
         {
             InitializeComponent();
             var c = (CarsController)DataContext;
-            c.Model.PropertyChanged += Model_PropertyChanged;
+            c.Model.PropertyChanged += Model_AddCar;
         }
 
-        private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void Model_AddCar(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if(e.PropertyName == "AddCar")
             {
-                MessageBox.Show("Added Car");
                 expAddCar.IsExpanded = false;
+                MessageBox.Show("Successfully added Car");
             }
         }
     }

@@ -10,14 +10,19 @@ namespace V02_MVC.Model
     class Car: ObservableObject
     {
         private int _idCar;
-
         [JsonIgnore]
-        public int IdCar
+        public int TempIdCar
         {
             get
             {
                 return _idCar;
             }
+        }
+
+        [JsonProperty("idCar")]
+        public int IdCar
+        {
+
             set
             {
                 if(_idCar != value)
