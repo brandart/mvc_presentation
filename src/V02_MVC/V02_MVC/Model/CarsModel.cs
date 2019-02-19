@@ -25,7 +25,20 @@ namespace V02_MVC.Model
         
         public Car CarToAdd { get; set; }
 
-        public Car SelectedCar { get; set; }
+        private Car _selectedCar;
+        public Car SelectedCar
+        {
+            get
+            {
+                return _selectedCar;
+            }
+
+            set
+            {
+                _selectedCar = value;
+                RaisePropertyChanged("SelectedCar");
+            }
+        }
 
         private MyDAL Dal;
 
@@ -52,12 +65,9 @@ namespace V02_MVC.Model
 
         public async void AddCar()
         {
-            // Serialize our concrete class into a JSON String
             var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(CarToAdd));
 
 
-
-            // Wrap our JSON inside a StringContent which then can be used by the HttpClient class
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
             var response = await Dal.PostAsync("2019_02_06_MVC_Backend/rest/cars", httpContent);
@@ -69,9 +79,30 @@ namespace V02_MVC.Model
             }
         }
 
-        public void DeleteCar()
+        public async void DeleteCar()
         {
+            var response = await Dal.DeleteAsync("2019_02_06_MVC_Backend/rest/cars/" + SelectedCar.TempIdCar);
+            if (response.IsSuccessStatusCode)
+            {
+                Cars.Remove(SelectedCar);
+                RaisePropertyChanged("DeleteCar");
+                SelectedCar = new Car();
+            }
+        }
 
+        public async void EditCar()
+        {
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(SelectedCar));
+
+
+            var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+
+            var response = await Dal.PutAsync("2019_02_06_MVC_Backend/rest/cars/" + SelectedCar.TempIdCar, httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                RaisePropertyChanged("EditCar");
+                SelectedCar = new Car();
+            }
         }
     }
 }

@@ -24,7 +24,8 @@ namespace V02_MVC.Controller
             Model = new CarsModel();
 
             AddCarCommand = new DelegateCommand(Model.CarToAdd, (_) => Model.AddCar(), e => Model.CarToAdd.Name != null );
-            DeleteCarCommand = new DelegateCommand(Model.SelectedCar, (_) => Model.DeleteCar(), e => Model.SelectedCar.TempIdCar == 0);
+            EditCarCommand = new DelegateCommand(Model, (_) => Model.EditCar(), e => 0 == 0);
+            DeleteCarCommand = new DelegateCommand(Model, (_) => Model.DeleteCar(), e => 0 == 0);
         }
     }
 }

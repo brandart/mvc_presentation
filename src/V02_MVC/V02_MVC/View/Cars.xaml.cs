@@ -22,11 +22,14 @@ namespace V02_MVC.View
     /// </summary>
     public partial class Cars : Page
     {
+        CarsController c; 
         public Cars()
         {
             InitializeComponent();
-            var c = (CarsController)DataContext;
+            c = (CarsController)DataContext;
             c.Model.PropertyChanged += Model_AddCar;
+            c.Model.PropertyChanged += Model_DeleteCar;
+            c.Model.PropertyChanged += Model_EditCar;
         }
 
         private void Model_AddCar(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -36,6 +39,27 @@ namespace V02_MVC.View
                 expAddCar.IsExpanded = false;
                 MessageBox.Show("Successfully added Car");
             }
+        }
+
+        private void Model_DeleteCar(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "DeleteCar")
+            {
+                MessageBox.Show("Successfully deleted Car");
+            }
+        }
+        private void Model_EditCar(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "EditCar")
+            {
+                expEditCar.IsExpanded = false;
+                MessageBox.Show("Successfully edited Car");
+            }
+        }
+
+        private void btnExpEditCar_Click(object sender, RoutedEventArgs e)
+        {
+            expEditCar.IsExpanded = true;
         }
     }
 }

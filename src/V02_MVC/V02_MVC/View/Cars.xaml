@@ -17,16 +17,27 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <ListBox HorizontalAlignment="Left" SelectedItem="{Binding Model.SelectedCar}" ItemsSource="{Binding Model.Cars}" Height="511" Margin="10,135,0,0" VerticalAlignment="Top" Width="770">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{Binding Name}" />
+                        <TextBlock Grid.Column="1" Text="{Binding Description}" />
+
+                        <TextBlock Grid.Column="2" Text="{Binding Price}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <Label Content="Cars" HorizontalAlignment="Center" Margin="0,26,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <ListView SelectionMode="Single" SelectedItem="{Binding Path=Model.SelectedCar}" ItemsSource="{Binding Path=Model.Cars}" HorizontalAlignment="Left" Height="514" Margin="10,132,0,0" VerticalAlignment="Top" Width="708">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" />
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+
         <Expander x:Name="expAddCar" Header="add Car" HorizontalAlignment="Left" Height="251" Margin="10,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
             <Grid RenderTransformOrigin="0.254,0.882" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -39,7 +50,7 @@
 
             </Grid>
         </Expander>
-        <Expander x:Name="expEditCar" Header="edit Car" HorizontalAlignment="Left" Height="251" Margin="372,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
+        <Expander x:Name="expEditCar" IsEnabled="{Binding Model.SelectedCar.IsFilled}" Header="edit Car" HorizontalAlignment="Left" Height="251" Margin="372,67,0,0" VerticalAlignment="Top" Width="346" Opacity="0.985" FontSize="20">
             <Grid RenderTransformOrigin="0.254,0.882" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtEditName" Text="{Binding Model.SelectedCar.Name, Mode=TwoWay}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,214,0" Width="120"/>
@@ -51,8 +62,9 @@
 
             </Grid>
         </Expander>
-        <Button x:Name="btnExpEditCar" Content="Edit Car" HorizontalAlignment="Left" Margin="10,651,0,0" VerticalAlignment="Top" Width="116" Height="38" FontSize="24"/>
-        <Button x:Name="btnDelete" Content="Delete Car" Command="{Binding DeleteCarCommand}" HorizontalAlignment="Left" Margin="131,651,0,0" VerticalAlignment="Top" Width="119" Height="38" FontSize="24"/>
+        <Button x:Name="btnExpEditCar" IsEnabled="{Binding Model.SelectedCar.IsFilled}" Content="Edit Car" HorizontalAlignment="Left" Margin="10,651,0,0" VerticalAlignment="Top" Width="116" Height="38" FontSize="24" Click="btnExpEditCar_Click" />
+
+        <Button x:Name="btnDelete" IsEnabled="{Binding Model.SelectedCar.IsFilled}" Content="Delete Car" Command="{Binding DeleteCarCommand}" HorizontalAlignment="Left" Margin="131,651,0,0" VerticalAlignment="Top" Width="119" Height="38" FontSize="24"/>
 
     </Grid>
 </Page>

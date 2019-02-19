@@ -47,5 +47,18 @@ namespace V02_MVC.DAL
             var HttpResponse = await HttpClient.PostAsync(Url, HttpContent);
             return HttpResponse;
         }
+
+        public async Task<HttpResponseMessage> DeleteAsync(string Url)
+        {
+            var HttpResponse = await HttpClient.DeleteAsync(Url);
+            return HttpResponse;
+        }
+
+        public async Task<HttpResponseMessage> PutAsync(string Url, StringContent HttpContent)
+        {
+            var HttpResponse = await HttpClient.PutAsync(Url, HttpContent);
+            return HttpResponse;
+        }
+
     }
 }

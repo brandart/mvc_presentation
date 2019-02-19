@@ -19,6 +19,21 @@ namespace V02_MVC.Model
             }
         }
 
+        [JsonIgnore]
+        public bool IsFilled
+        {
+            get
+            {
+                if(TempIdCar == 0)
+                {
+                    return false;
+                } else
+                {
+                    return true;
+                }
+            }
+        }
+
         [JsonProperty("idCar")]
         public int IdCar
         {
