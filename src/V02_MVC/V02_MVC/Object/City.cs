@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,37 @@ namespace V02_MVC.Model
 {
     public class City: ObservableObject
     {
-        private int _idCity;
-        public int IdCity
+
+        [JsonIgnore]
+        public int TempIdCity
         {
             get
             {
                 return _idCity;
             }
+        }
+
+        [JsonIgnore]
+        public bool IsFilled
+        {
+            get
+            {
+                if (TempIdCity == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        private int _idCity;
+
+        [JsonProperty("idCity")]
+        public int IdCity
+        {
             set
             {
                 if(_idCity != value)
@@ -26,6 +51,7 @@ namespace V02_MVC.Model
         }
 
         private string _name;
+        [JsonProperty("name")]
         public string Name
         {
             get
@@ -43,6 +69,7 @@ namespace V02_MVC.Model
         }
 
         private int _plz;
+        [JsonProperty("plz")]
         public int Plz
         {
             get
@@ -58,5 +85,7 @@ namespace V02_MVC.Model
                 }
             }
         }
+
+
     }
 }

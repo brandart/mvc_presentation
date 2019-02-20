@@ -59,10 +59,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\CarsController.cs" />
+    <Compile Include="Controller\CitiesController.cs" />
     <Compile Include="Controller\DelegateCommand.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\MyDAL.cs" />
     <Compile Include="Model\CarsModel.cs" />
+    <Compile Include="Model\CitiesModel.cs" />
     <Compile Include="MyObservableCollection.cs" />
     <Compile Include="Object\Car.cs" />
     <Compile Include="Object\City.cs" />
@@ -71,6 +73,9 @@
     <Compile Include="ObservableObject.cs" />
     <Compile Include="View\Cars.xaml.cs">
       <DependentUpon>Cars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cities.xaml.cs">
+      <DependentUpon>Cities.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Customers.xaml.cs">
       <DependentUpon>Customers.xaml</DependentUpon>
@@ -94,6 +99,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Cars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Cities.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,6 +15,7 @@ namespace V02_MVC.Model
     class CarsModel: MyObservableCollection<Car>
     {
         private ObservableCollection<Car> _cars;
+        private readonly string RestUrl = "2019_02_06_MVC_Backend/rest/cars/";
         public ObservableCollection<Car> Cars
         {
             get
@@ -51,10 +52,9 @@ namespace V02_MVC.Model
 
         private async void InitData()
         {
-            string JsonCars = await Dal.GetAsync("2019_02_06_MVC_Backend/rest/cars");
+            string JsonCars = await Dal.GetAsync(RestUrl);
 
             var deserialized = JsonConvert.DeserializeObject<IEnumerable<Car>>(JsonCars);
-            // Do something with it
 
             List<Car> temp = deserialized.ToList<Car>();
             _cars = new ObservableCollection<Car>(temp);
@@ -70,7 +70,7 @@ namespace V02_MVC.Model
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
-            var response = await Dal.PostAsync("2019_02_06_MVC_Backend/rest/cars", httpContent);
+            var response = await Dal.PostAsync(RestUrl, httpContent);
             if (response.IsSuccessStatusCode)
             {
                 Cars.Add(CarToAdd);
@@ -81,7 +81,7 @@ namespace V02_MVC.Model
 
         public async void DeleteCar()
         {
-            var response = await Dal.DeleteAsync("2019_02_06_MVC_Backend/rest/cars/" + SelectedCar.TempIdCar);
+            var response = await Dal.DeleteAsync(RestUrl + SelectedCar.TempIdCar);
             if (response.IsSuccessStatusCode)
             {
                 Cars.Remove(SelectedCar);
@@ -97,7 +97,7 @@ namespace V02_MVC.Model
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
-            var response = await Dal.PutAsync("2019_02_06_MVC_Backend/rest/cars/" + SelectedCar.TempIdCar, httpContent);
+            var response = await Dal.PutAsync(RestUrl + SelectedCar.TempIdCar, httpContent);
             if (response.IsSuccessStatusCode)
             {
                 RaisePropertyChanged("EditCar");
