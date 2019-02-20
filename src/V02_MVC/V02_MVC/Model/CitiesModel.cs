@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,24 @@ namespace V02_MVC.Model
 
         private readonly string RestUrl = "2019_02_06_MVC_Backend/rest/cities/";
 
+        
+        private City _selectedCity;
+        public City SelectedCity
+        {
+            get
+            {
+                return _selectedCity;
+            }
+            set
+            {
+                if(_selectedCity != value)
+                {
+                    _selectedCity = value;
+                    RaisePropertyChanged("SelectedCity");
+                }
+            }
+        }
+
         public CitiesModel()
         {
             Dal = MyDAL.Instance;
@@ -45,7 +64,7 @@ namespace V02_MVC.Model
 
             CityToAdd = new City();
 
-            // SelectedCity = new Car(); 
+             SelectedCity = new City(); 
         }
 
         public async void AddCity()
@@ -55,12 +74,28 @@ namespace V02_MVC.Model
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
-            var response = await Dal.PostAsync(RestUrl, httpContent);
+            var response = await Dal.PostAsync(RestUrl, httpContent); 
             if (response.IsSuccessStatusCode)
             {
                 Cities.Add(CityToAdd);
                 RaisePropertyChanged("AddCity");
                 CityToAdd = new City();
+            }
+        }
+
+        public async void DeleteCity()
+        {
+            var response = await Dal.DeleteAsync(RestUrl + _selectedCity.TempIdCity);
+            
+           
+            if (response.IsSuccessStatusCode)
+            {
+                Cities.Remove(_selectedCity);
+                RaisePropertyChanged("DeleteCar");
+                SelectedCity = new City();
+            } else
+            {
+                RaisePropertyChanged("DeleteCarUnsuccessful");
             }
         }
 

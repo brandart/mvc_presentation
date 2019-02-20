@@ -14,7 +14,7 @@
     <Grid>
         <Label Content="Cities" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Height="58" Width="112" FontSize="36" FontWeight="Bold"/>
 
-        <ListBox ItemsSource="{Binding Model.Cities}" HorizontalAlignment="Left" Height="468" Margin="10,136,0,0" VerticalAlignment="Top" Width="877">
+        <ListBox ItemsSource="{Binding Model.Cities}" SelectedItem="{Binding Model.SelectedCity}" HorizontalAlignment="Left" Height="468" Margin="10,136,0,0" VerticalAlignment="Top" Width="877">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2">
@@ -39,6 +39,7 @@
                 <Button Content="Add City" Command="{Binding CityAddCommand}" HorizontalAlignment="Left" Margin="189,139,0,0" VerticalAlignment="Top" Width="103" Height="38"/>
             </Grid>
         </Expander>
+        <Button Content="Delete" IsEnabled="{Binding Model.SelectedCity.IsFilled}" Command="{Binding CityDeleteCommand}"  HorizontalAlignment="Left" Margin="106,609,0,0" VerticalAlignment="Top" Width="93" FontSize="24"/>
 
     </Grid>
 </Page>
