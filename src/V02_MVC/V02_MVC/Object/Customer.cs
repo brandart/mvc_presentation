@@ -10,14 +10,15 @@ namespace V02_MVC.Object
 {
     class Customer: ObservableObject
     {
-        [JsonIgnore]
-        public int TempIdCustomer;
-        [JsonIgnore]
+
         private int _idCustomer;
 
-        [JsonProperty("idCustomer")]
         public int IdCustomer
         {
+            get
+            {
+                return _idCustomer;
+            }
             set
             {
                 if(_idCustomer != value)
@@ -29,7 +30,6 @@ namespace V02_MVC.Object
         }
 
         private string _name;
-        [JsonProperty("name")]
         public string Name
         {
             get
@@ -48,7 +48,6 @@ namespace V02_MVC.Object
 
         private int _age;
 
-        [JsonProperty("age")]
         public int Age
         {
             get
@@ -66,7 +65,7 @@ namespace V02_MVC.Object
         }
 
         private City _city;
-        [JsonProperty("city")]
+
         public City City
         {
             get
@@ -81,6 +80,20 @@ namespace V02_MVC.Object
                     RaisePropertyChanged("City");
                 }
             }
+        }
+
+        public object GetObject()
+        {
+            var root = new
+            {
+                name = Name,
+                age = Age,
+                city = new
+                {
+                    idCity = City.TempIdCity
+                }
+            };
+            return root;
         }
     }
 }

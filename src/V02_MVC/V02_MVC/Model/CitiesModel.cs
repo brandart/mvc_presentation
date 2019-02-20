@@ -30,11 +30,8 @@ namespace V02_MVC.Model
             }
             set
             {
-                if(_selectedCity != value)
-                {
-                    _selectedCity = value;
-                    RaisePropertyChanged("SelectedCity");
-                }
+                _selectedCity = value;
+                RaisePropertyChanged("SelectedCity");
             }
         }
 
@@ -61,7 +58,7 @@ namespace V02_MVC.Model
 
         public async void AddCity()
         {
-            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(CityToAdd));
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(CityToAdd.GetObject()));
 
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
@@ -96,7 +93,7 @@ namespace V02_MVC.Model
 
         public async void EditCity()
         {
-            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCity));
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCity.GetObject()));
 
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
@@ -105,7 +102,6 @@ namespace V02_MVC.Model
             if (response.IsSuccessStatusCode)
             {
                 RaisePropertyChanged("EditCity");
-                // SelectedCity = new City();
             }
             else
             {

@@ -10,7 +10,6 @@ namespace V02_MVC.Model
     public class City: ObservableObject
     {
 
-        [JsonIgnore]
         public int TempIdCity
         {
             get
@@ -19,12 +18,11 @@ namespace V02_MVC.Model
             }
         }
 
-        [JsonIgnore]
         public bool IsFilled
         {
             get
             {
-                if (TempIdCity == 0)
+                if (Name == "")
                 {
                     return false;
                 }
@@ -37,7 +35,6 @@ namespace V02_MVC.Model
 
         private int _idCity;
 
-        [JsonProperty("idCity")]
         public int IdCity
         {
             set
@@ -51,7 +48,6 @@ namespace V02_MVC.Model
         }
 
         private string _name;
-        [JsonProperty("name")]
         public string Name
         {
             get
@@ -69,7 +65,6 @@ namespace V02_MVC.Model
         }
 
         private int _plz;
-        [JsonProperty("plz")]
         public int Plz
         {
             get
@@ -86,6 +81,15 @@ namespace V02_MVC.Model
             }
         }
 
+        public object GetObject()
+        {
+            var root = new
+            {
+                plz = Plz,
+                name = Name,
+            };
+            return root;
+        }
 
     }
 }

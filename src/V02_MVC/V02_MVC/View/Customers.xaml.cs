@@ -26,6 +26,16 @@ namespace V02_MVC.View
         {
             InitializeComponent();
             c = (CustomersController) DataContext;
+            c.Model.PropertyChanged += Model_AddCustomer;
+        }
+
+        private void Model_AddCustomer(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "AddCustomer")
+            {
+                MessageBox.Show("Successfully added customer");
+                expAddCustomer.IsExpanded = false;
+            }
         }
     }
 }

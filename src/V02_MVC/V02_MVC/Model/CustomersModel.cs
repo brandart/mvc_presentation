@@ -48,18 +48,7 @@ namespace V02_MVC.Model
 
         public async void AddCustomer()
         {
-            var root = new
-            {
-                name = CustomerToAdd.Name,
-                age = CustomerToAdd.Age,
-                city = new
-                {
-                    idCity = CustomerToAdd.City.TempIdCity
-                }
-            };
-            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(root));
-
-            
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(CustomerToAdd.GetObject()));
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
@@ -67,7 +56,7 @@ namespace V02_MVC.Model
             if (response.IsSuccessStatusCode)
             {
                 Customers.Add(CustomerToAdd);
-                RaisePropertyChanged("AddCar");
+                RaisePropertyChanged("AddCustomer");
             }
         }
     }

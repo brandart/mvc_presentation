@@ -10,7 +10,6 @@ namespace V02_MVC.Model
     class Car: ObservableObject
     {
         private int _idCar;
-        [JsonIgnore]
         public int TempIdCar
         {
             get
@@ -19,12 +18,11 @@ namespace V02_MVC.Model
             }
         }
 
-        [JsonIgnore]
         public bool IsFilled
         {
             get
             {
-                if(TempIdCar == 0)
+                if(Name == "")
                 {
                     return false;
                 } else
@@ -34,7 +32,6 @@ namespace V02_MVC.Model
             }
         }
 
-        [JsonProperty("idCar")]
         public int IdCar
         {
 
@@ -49,7 +46,6 @@ namespace V02_MVC.Model
         }
 
         private string _description;
-        [JsonProperty("description")]
         public string Description
         {
             get
@@ -67,7 +63,6 @@ namespace V02_MVC.Model
         }
 
         private string _name;
-        [JsonProperty("name")]
         public string Name
         {
             get
@@ -84,7 +79,6 @@ namespace V02_MVC.Model
             }
         }
         private double _price;
-        [JsonProperty("price")]
         public double Price
         {
             get
@@ -99,6 +93,17 @@ namespace V02_MVC.Model
                     RaisePropertyChanged("Price");
                 }
             }
+        }
+
+        public object GetObject()
+        {
+            var root = new
+            {
+                name = Name,
+                price = Price,
+                description = Description
+            };
+            return root;
         }
     }
 }

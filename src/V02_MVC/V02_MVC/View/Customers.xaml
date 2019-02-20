@@ -32,7 +32,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Expander Header="Add customer" FontSize="20" HorizontalAlignment="Left" Height="258" Margin="10,92,0,0" VerticalAlignment="Top" Width="378">
+        <Expander Header="Add customer" Name="expAddCustomer" FontSize="20" HorizontalAlignment="Left" Height="258" Margin="10,92,0,0" VerticalAlignment="Top" Width="378">
             <Grid Background="#FFE5E5E5">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtName" Text="{Binding Model.CustomerToAdd.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,230,0"/>

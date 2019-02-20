@@ -69,7 +69,7 @@ namespace V02_MVC.Model
 
         public async void AddCar()
         {
-            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(CarToAdd));
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(CarToAdd.GetObject()));
             
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
@@ -96,7 +96,7 @@ namespace V02_MVC.Model
 
         public async void EditCar()
         {
-            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCar));
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCar.GetObject()));
 
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
