@@ -41,7 +41,7 @@
                 <TextBox x:Name="txtDescr" Text="{Binding Model.CustomerToAdd.Age}" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label Content="City" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="btnAddCar" Content="Save"  Command="{Binding AddCustomerCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="244,179,0,0"/>
-                <ComboBox ItemsSource="{Binding Path=Model.Cities}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="167,52,0,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox ItemsSource="{Binding Path=Model.Cities}" SelectedValue="{Binding Path=Model.CustomerToAdd.City}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="167,52,0,0" VerticalAlignment="Top" Width="120"/>
 
             </Grid>
         </Expander>

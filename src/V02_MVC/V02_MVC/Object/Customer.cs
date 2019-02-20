@@ -12,7 +12,10 @@ namespace V02_MVC.Object
     {
         [JsonIgnore]
         public int TempIdCustomer;
+        [JsonIgnore]
         private int _idCustomer;
+
+        [JsonProperty("idCustomer")]
         public int IdCustomer
         {
             set
@@ -26,6 +29,7 @@ namespace V02_MVC.Object
         }
 
         private string _name;
+        [JsonProperty("name")]
         public string Name
         {
             get
@@ -44,6 +48,7 @@ namespace V02_MVC.Object
 
         private int _age;
 
+        [JsonProperty("age")]
         public int Age
         {
             get
@@ -61,6 +66,7 @@ namespace V02_MVC.Object
         }
 
         private City _city;
+        [JsonProperty("city")]
         public City City
         {
             get

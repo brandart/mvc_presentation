@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using V02_MVC.DAL;
@@ -47,7 +48,27 @@ namespace V02_MVC.Model
 
         public async void AddCustomer()
         {
+            var root = new
+            {
+                name = CustomerToAdd.Name,
+                age = CustomerToAdd.Age,
+                city = new
+                {
+                    idCity = CustomerToAdd.City.TempIdCity
+                }
+            };
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(root));
 
+            
+
+            var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+
+            var response = await Dal.PostAsync(RestUrl, httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                Customers.Add(CustomerToAdd);
+                RaisePropertyChanged("AddCar");
+            }
         }
     }
 }
