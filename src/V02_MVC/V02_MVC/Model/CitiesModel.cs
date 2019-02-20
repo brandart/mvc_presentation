@@ -77,7 +77,7 @@ namespace V02_MVC.Model
 
         public async void DeleteCity()
         {
-            var response = await Dal.DeleteAsync(RestUrl + _selectedCity.TempIdCity);
+            var response = await Dal.DeleteAsync(RestUrl + _selectedCity.IdCity);
             
            
             if (response.IsSuccessStatusCode)
@@ -98,7 +98,7 @@ namespace V02_MVC.Model
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
-            var response = await Dal.PutAsync(RestUrl + _selectedCity.TempIdCity, httpContent);
+            var response = await Dal.PutAsync(RestUrl + _selectedCity.IdCity, httpContent);
             if (response.IsSuccessStatusCode)
             {
                 RaisePropertyChanged("EditCity");

@@ -10,13 +10,6 @@ namespace V02_MVC.Model
     public class City: ObservableObject
     {
 
-        public int TempIdCity
-        {
-            get
-            {
-                return _idCity;
-            }
-        }
 
         public bool IsFilled
         {
@@ -37,6 +30,10 @@ namespace V02_MVC.Model
 
         public int IdCity
         {
+            get
+            {
+                return _idCity;
+            }
             set
             {
                 if(_idCity != value)

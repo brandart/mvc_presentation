@@ -14,7 +14,7 @@
 
     <Grid>
         <Label Content="Customer" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding Model.Customers}" Height="624" Margin="10,132,0,0" VerticalAlignment="Top" Width="904">
+        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding Model.Customers}" SelectedItem="{Binding Model.SelectedCustomer}" Height="624" Margin="10,132,0,0" VerticalAlignment="Top" Width="904">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,3">
@@ -43,6 +43,20 @@
                 <Button x:Name="btnAddCar" Content="Save"  Command="{Binding AddCustomerCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="244,179,0,0"/>
                 <ComboBox ItemsSource="{Binding Path=Model.Cities}" SelectedValue="{Binding Path=Model.CustomerToAdd.City}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="167,52,0,0" VerticalAlignment="Top" Width="120"/>
 
+            </Grid>
+        </Expander>
+        <Button Content="Delete" Command="{Binding DeleteCustomerCommand}" HorizontalAlignment="Left" Margin="139,761,0,0" VerticalAlignment="Top" Width="96" FontSize="26" Height="41"/>
+        <Button Content="Edit" Name="btnOpenEditExp" HorizontalAlignment="Left" Margin="10,761,0,0" VerticalAlignment="Top" Width="92" FontSize="26" Height="41" Click="btnOpenEditExp_Click"/>
+        <Expander Header="Edit Customer" Name="expEditCustomer" FontSize="20" HorizontalAlignment="Left" Height="258" Margin="393,92,0,0" VerticalAlignment="Top" Width="339">
+            <Grid Background="#FFE5E5E5">
+                <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox Text="{Binding Model.SelectedCustomer.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,230,0"/>
+                <Label Content="Age
+                       " HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
+                <TextBox Text="{Binding Model.SelectedCustomer.Age}" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="City" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top"/>
+                <Button Content="Save"  Command="{Binding EditCustomerCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="231,193,0,0"/>
+                <ComboBox ItemsSource="{Binding Path=Model.Cities}" SelectedValue="{Binding Path=Model.SelectedCustomer.City}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="167,52,0,0" VerticalAlignment="Top" Width="120"/>
             </Grid>
         </Expander>
 

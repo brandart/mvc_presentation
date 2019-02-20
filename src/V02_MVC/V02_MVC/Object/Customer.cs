@@ -90,7 +90,7 @@ namespace V02_MVC.Object
                 age = Age,
                 city = new
                 {
-                    idCity = City.TempIdCity
+                    idCity = City.IdCity
                 }
             };
             return root;

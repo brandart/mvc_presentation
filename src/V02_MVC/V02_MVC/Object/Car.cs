@@ -10,13 +10,6 @@ namespace V02_MVC.Model
     class Car: ObservableObject
     {
         private int _idCar;
-        public int TempIdCar
-        {
-            get
-            {
-                return _idCar;
-            }
-        }
 
         public bool IsFilled
         {
@@ -34,6 +27,10 @@ namespace V02_MVC.Model
 
         public int IdCar
         {
+            get
+            {
+                return _idCar;
+            }
 
             set
             {

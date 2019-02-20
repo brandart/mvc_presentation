@@ -22,6 +22,20 @@ namespace V02_MVC.Model
 
         public Customer CustomerToAdd { get; set; }
 
+        private Customer _selectedCustomer;
+        public Customer SelectedCustomer
+        {
+            get
+            {
+                return _selectedCustomer;
+            } 
+            set
+            {
+                _selectedCustomer = value;
+                RaisePropertyChanged("SelectedCustomer");
+            }
+        }
+
         public CustomersModel()
         {
             Dal = MyDAL.Instance;
@@ -44,6 +58,7 @@ namespace V02_MVC.Model
             Cities = new ObservableCollection<City>(temp2);
 
             CustomerToAdd = new Customer();
+            _selectedCustomer = new Customer();
         }
 
         public async void AddCustomer()
@@ -58,6 +73,34 @@ namespace V02_MVC.Model
                 Customers.Add(CustomerToAdd);
                 RaisePropertyChanged("AddCustomer");
             }
+        }
+
+        public async void EditCustomer()
+        {
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCustomer.GetObject()));
+
+            var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+
+            var response = await Dal.PutAsync(RestUrl + _selectedCustomer.IdCustomer, httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                RaisePropertyChanged("EditCustomer");
+            }
+        }
+
+        public async void DeleteCustomer()
+        {
+            var response = await Dal.DeleteAsync(RestUrl + _selectedCustomer.IdCustomer);
+            if (response.IsSuccessStatusCode)
+            {
+                Customers.Remove(_selectedCustomer);
+                RaisePropertyChanged("DeleteCustomer");
+                _selectedCustomer = new Customer();
+            } else
+            {
+                RaisePropertyChanged("DeleteCustomerUn");
+            }
+
         }
     }
 }

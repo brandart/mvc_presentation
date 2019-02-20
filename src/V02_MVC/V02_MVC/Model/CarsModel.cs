@@ -35,13 +35,8 @@ namespace V02_MVC.Model
             }
             set
             {
-                if(_selectedCar != value)
-                {
-                    _selectedCar = value;
-                    RaisePropertyChanged("SelectedCar");
-                }
-                
-                
+                _selectedCar = value;
+                RaisePropertyChanged("SelectedCar");
             }
         }
 
@@ -85,7 +80,7 @@ namespace V02_MVC.Model
 
         public async void DeleteCar()
         {
-            var response = await Dal.DeleteAsync(RestUrl + _selectedCar.TempIdCar);
+            var response = await Dal.DeleteAsync(RestUrl + _selectedCar.IdCar);
             if (response.IsSuccessStatusCode)
             {
                 Cars.Remove(_selectedCar);
@@ -98,10 +93,9 @@ namespace V02_MVC.Model
         {
             var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCar.GetObject()));
 
-
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
-            var response = await Dal.PutAsync(RestUrl + _selectedCar.TempIdCar, httpContent);
+            var response = await Dal.PutAsync(RestUrl + _selectedCar.IdCar, httpContent);
             if (response.IsSuccessStatusCode)
             {
                 RaisePropertyChanged("EditCar");

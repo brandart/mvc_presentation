@@ -27,6 +27,34 @@ namespace V02_MVC.View
             InitializeComponent();
             c = (CustomersController) DataContext;
             c.Model.PropertyChanged += Model_AddCustomer;
+            c.Model.PropertyChanged += Model_DeleteCustomer;
+            c.Model.PropertyChanged += Model_DeleteCustomerUn;
+            c.Model.PropertyChanged += Model_EditCustomer;
+        }
+
+        private void Model_EditCustomer(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "EditCustomer")
+            {
+                expEditCustomer.IsExpanded = false;
+                MessageBox.Show("Successfully edited Customer");
+            }
+        }
+
+        private void Model_DeleteCustomerUn(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "DeleteCustomerUn")
+            {
+                MessageBox.Show("Couldn't delete Customer");
+            }
+        }
+
+        private void Model_DeleteCustomer(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "DeleteCustomer")
+            {
+                MessageBox.Show("Successfully deleted Customer");
+            }
         }
 
         private void Model_AddCustomer(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -36,6 +64,11 @@ namespace V02_MVC.View
                 MessageBox.Show("Successfully added customer");
                 expAddCustomer.IsExpanded = false;
             }
+        }
+
+        private void btnOpenEditExp_Click(object sender, RoutedEventArgs e)
+        {
+            expEditCustomer.IsExpanded = true;
         }
     }
 }
