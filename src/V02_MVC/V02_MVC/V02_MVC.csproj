@@ -60,15 +60,18 @@
     </ApplicationDefinition>
     <Compile Include="Controller\CarsController.cs" />
     <Compile Include="Controller\CitiesController.cs" />
+    <Compile Include="Controller\CustomersController.cs" />
     <Compile Include="Controller\DelegateCommand.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\MyDAL.cs" />
     <Compile Include="Model\CarsModel.cs" />
     <Compile Include="Model\CitiesModel.cs" />
+    <Compile Include="Model\CustomersModel.cs" />
     <Compile Include="MyObservableCollection.cs" />
     <Compile Include="Object\Car.cs" />
     <Compile Include="Object\City.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Object\Customer.cs" />
     <Compile Include="Object\Worker.cs" />
     <Compile Include="ObservableObject.cs" />
     <Compile Include="View\Cars.xaml.cs">

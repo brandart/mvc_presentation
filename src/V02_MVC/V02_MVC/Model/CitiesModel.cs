@@ -14,15 +14,7 @@ namespace V02_MVC.Model
     class CitiesModel: MyObservableCollection<City>
     {
         private MyDAL Dal;
-        public ObservableCollection<City> Cities
-        {
-            get
-            {
-                return _cities;
-            }
-        }
-
-        private ObservableCollection<City> _cities;
+        public ObservableCollection<City> Cities { get; private set; }
 
         public City CityToAdd { get; set; }
 
@@ -60,7 +52,7 @@ namespace V02_MVC.Model
             var deserialized = JsonConvert.DeserializeObject<IEnumerable<City>>(JsonCities);
 
             List<City> temp = deserialized.ToList<City>();
-            _cities = new ObservableCollection<City>(temp);
+            Cities = new ObservableCollection<City>(temp);
 
             CityToAdd = new City();
 
@@ -80,6 +72,9 @@ namespace V02_MVC.Model
                 Cities.Add(CityToAdd);
                 RaisePropertyChanged("AddCity");
                 CityToAdd = new City();
+            }else
+            {
+                RaisePropertyChanged("AddCityUn");
             }
         }
 
@@ -96,6 +91,25 @@ namespace V02_MVC.Model
             } else
             {
                 RaisePropertyChanged("DeleteCarUnsuccessful");
+            }
+        }
+
+        public async void EditCity()
+        {
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCity));
+
+
+            var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+
+            var response = await Dal.PutAsync(RestUrl + _selectedCity.TempIdCity, httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                RaisePropertyChanged("EditCity");
+                // SelectedCity = new City();
+            }
+            else
+            {
+                RaisePropertyChanged("EditCityUn");
             }
         }
 

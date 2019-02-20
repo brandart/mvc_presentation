@@ -105,7 +105,6 @@ namespace V02_MVC.Model
             if (response.IsSuccessStatusCode)
             {
                 RaisePropertyChanged("EditCar");
-                SelectedCar = new Car();
             }
         }
     }

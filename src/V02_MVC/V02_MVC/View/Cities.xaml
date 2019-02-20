@@ -30,16 +30,34 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Expander Header="Add City" Name="expAddCity" HorizontalAlignment="Left" Height="218" FontSize="20" Margin="10,51,0,0" VerticalAlignment="Top" Width="304">
+        <Expander Header="Add city" Name="expAddCity" HorizontalAlignment="Left" Height="218" FontSize="20" Margin="10,51,0,0" VerticalAlignment="Top" Width="304">
             <Grid Background="#FFE5E5E5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="245*"/>
+                    <ColumnDefinition Width="57*"/>
+                </Grid.ColumnDefinitions>
                 <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
                 <TextBox HorizontalAlignment="Left" Height="45" Margin="10,47,0,0" TextWrapping="Wrap" Text="{Binding Model.CityToAdd.Name}" VerticalAlignment="Top" Width="124"/>
                 <Label Content="PLZ" HorizontalAlignment="Left" Margin="14,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.033,2.154"/>
                 <TextBox HorizontalAlignment="Left" Height="38" Margin="10,139,0,0" TextWrapping="Wrap" Text="{Binding Model.CityToAdd.Plz}" VerticalAlignment="Top" Width="124"/>
-                <Button Content="Add City" Command="{Binding CityAddCommand}" HorizontalAlignment="Left" Margin="189,139,0,0" VerticalAlignment="Top" Width="103" Height="38"/>
+                <Button Content="Save" Command="{Binding CityAddCommand}" HorizontalAlignment="Left" Margin="189,139,0,0" VerticalAlignment="Top" Width="103" Height="38" Grid.ColumnSpan="2"/>
             </Grid>
         </Expander>
         <Button Content="Delete" IsEnabled="{Binding Model.SelectedCity.IsFilled}" Command="{Binding CityDeleteCommand}"  HorizontalAlignment="Left" Margin="106,609,0,0" VerticalAlignment="Top" Width="93" FontSize="24"/>
+        <Button Name="btnOpenEditExp" Content="Edit" IsEnabled="{Binding Model.SelectedCity.IsFilled}" HorizontalAlignment="Left" Margin="10,609,0,0" VerticalAlignment="Top" Width="75" FontSize="24" Click="btnOpenEditExp_Click" />
+        <Expander Name="expEditCity" Header="Edit city" IsEnabled="{Binding Model.SelectedCity.IsFilled}" FontSize="20" HorizontalAlignment="Left" Height="228" Margin="342,58,0,0" VerticalAlignment="Top" Width="334">
+            <Grid Background="#FFE5E5E5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="245*"/>
+                    <ColumnDefinition Width="57*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="45" Margin="10,47,0,0" TextWrapping="Wrap" Text="{Binding Model.SelectedCity.Name}" VerticalAlignment="Top" Width="124"/>
+                <Label Content="PLZ" HorizontalAlignment="Left" Margin="14,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.033,2.154"/>
+                <TextBox HorizontalAlignment="Left" Height="38" Margin="10,139,0,0" TextWrapping="Wrap" Text="{Binding Model.SelectedCity.Plz}" VerticalAlignment="Top" Width="124"/>
+                <Button Content="Save" Command="{Binding CityEditCommand}" HorizontalAlignment="Left" Margin="189,139,0,0" VerticalAlignment="Top" Width="103" Height="38" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Expander>
 
     </Grid>
 </Page>

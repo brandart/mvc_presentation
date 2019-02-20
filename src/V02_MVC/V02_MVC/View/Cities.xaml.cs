@@ -29,6 +29,34 @@ namespace V02_MVC.View
             c.Model.PropertyChanged += Model_AddCity;
             c.Model.PropertyChanged += Model_DeleteCity;
             c.Model.PropertyChanged += Model_DeleteCityUnsuccessful;
+            c.Model.PropertyChanged += Model_EditCitySuccessful;
+            c.Model.PropertyChanged += Model_EditCityUnsuccessful;
+            c.Model.PropertyChanged += Model_AddCityUn;
+        }
+
+        private void Model_AddCityUn(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "AddCityUn")
+            {
+                MessageBox.Show("Unsuccessfully added city");
+            }
+        }
+
+        private void Model_EditCityUnsuccessful(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "EditCityUn")
+            {
+                MessageBox.Show("Unsuccessfully edited city");
+            }
+        }
+
+        private void Model_EditCitySuccessful(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "EditCity")
+            {
+                expEditCity.IsExpanded = false;
+                MessageBox.Show("Successfully edited city");
+            }
         }
 
         private void Model_DeleteCityUnsuccessful(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -54,6 +82,11 @@ namespace V02_MVC.View
                 expAddCity.IsExpanded = false;
                 MessageBox.Show("Successfully added city");
             }
+        }
+
+        private void btnOpenEditExp_Click(object sender, RoutedEventArgs e)
+        {
+            expEditCity.IsExpanded = true;
         }
     }
 }

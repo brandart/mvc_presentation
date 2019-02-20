@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using V02_MVC.Controller;
 
 namespace V02_MVC.View
 {
@@ -20,9 +21,11 @@ namespace V02_MVC.View
     /// </summary>
     public partial class Customers : Page
     {
+        CustomersController c;
         public Customers()
         {
             InitializeComponent();
+            c = (CustomersController) DataContext;
         }
     }
 }

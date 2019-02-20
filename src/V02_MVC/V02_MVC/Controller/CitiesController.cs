@@ -16,11 +16,14 @@ namespace V02_MVC.Controller
 
         public DelegateCommand CityDeleteCommand { get; }
 
+        public DelegateCommand CityEditCommand { get; }
+
         public CitiesController()
         {
             Model = new CitiesModel();
             CityAddCommand = new DelegateCommand(Model.CityToAdd, (_) => Model.AddCity(), e => 0 == 0);
             CityDeleteCommand = new DelegateCommand(Model.SelectedCity, (_) => Model.DeleteCity(), e => 0 == 0);
+            CityEditCommand = new DelegateCommand(Model.SelectedCity, (_) => Model.EditCity(), e => 0 == 0);
         }
     }
 }
