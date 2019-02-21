@@ -63,10 +63,12 @@
     <Compile Include="Controller\CustomersController.cs" />
     <Compile Include="Controller\DelegateCommand.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\WorkersController.cs" />
     <Compile Include="DAL\MyDAL.cs" />
     <Compile Include="Model\CarsModel.cs" />
     <Compile Include="Model\CitiesModel.cs" />
     <Compile Include="Model\CustomersModel.cs" />
+    <Compile Include="Model\WorkersModel.cs" />
     <Compile Include="MyObservableCollection.cs" />
     <Compile Include="Object\Car.cs" />
     <Compile Include="Object\City.cs" />
@@ -88,6 +90,9 @@
     </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Workers.xaml.cs">
+      <DependentUpon>Workers.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Workers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

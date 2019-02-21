@@ -14,16 +14,9 @@ namespace V02_MVC.Model
 {
     class CarsModel: MyObservableCollection<Car>
     {
-        private ObservableCollection<Car> _cars;
         private readonly string RestUrl = "2019_02_06_MVC_Backend/rest/cars/";
-        public ObservableCollection<Car> Cars
-        {
-            get
-            {
-                return _cars;
-            }
-        }
-        
+        public ObservableCollection<Car> Cars { get; private set; }
+
         public Car CarToAdd { get; set; }
 
         private Car _selectedCar;
@@ -56,7 +49,7 @@ namespace V02_MVC.Model
             var deserialized = JsonConvert.DeserializeObject<IEnumerable<Car>>(JsonCars);
 
             List<Car> temp = deserialized.ToList<Car>();
-            _cars = new ObservableCollection<Car>(temp);
+            Cars = new ObservableCollection<Car>(temp);
 
             CarToAdd = new Car();
             SelectedCar = new Car();

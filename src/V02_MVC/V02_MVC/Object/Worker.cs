@@ -92,5 +92,25 @@ namespace V02_MVC.Model
                 }
             }
         }
+
+        public object GetObject()
+        {
+            int IsAdmin = 0;
+            if (Admin)
+            {
+                IsAdmin = 1;
+            }
+            var root = new
+            {
+                name = Name,
+                age = Age,
+                admin = IsAdmin,
+                city = new
+                {
+                    idCity = City.IdCity
+                }
+            };
+            return root;
+        }
     }
 }

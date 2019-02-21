@@ -45,9 +45,7 @@ namespace V02_MVC.Model
         private async void initData()
         {
             string JsonCities = await Dal.GetAsync(RestUrl);
-
             var deserialized = JsonConvert.DeserializeObject<IEnumerable<City>>(JsonCities);
-
             List<City> temp = deserialized.ToList<City>();
             Cities = new ObservableCollection<City>(temp);
 
