@@ -82,5 +82,16 @@ namespace V02_MVC.Model
                 _selectedWorker = new Worker();
             }
         }
+
+        public async void EditWorker()
+        {
+            var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedWorker.GetObject()));
+            var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
+            var response = await Dal.PutAsync(RestUrl + _selectedWorker.IdWorker, httpContent);
+            if (response.IsSuccessStatusCode)
+            {
+                RaisePropertyChanged("EditWorker");
+            }
+        }
     }
 }

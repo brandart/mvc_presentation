@@ -48,6 +48,21 @@ namespace V02_MVC.Object
 
         private int _age;
 
+        public bool IsFilled
+        {
+            get
+            {
+                if(Name == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
         public int Age
         {
             get

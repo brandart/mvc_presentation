@@ -15,7 +15,7 @@ namespace V02_MVC.Model
         {
             get
             {
-                if(Name == "")
+                if(Name == null)
                 {
                     return false;
                 } else

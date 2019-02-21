@@ -35,7 +35,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="160,885,0,0" Command="{Binding DeleteWorkerCommand}" FontSize="26" VerticalAlignment="Top" Width="113" Height="47"/>
+        <Button Content="Delete" HorizontalAlignment="Left" IsEnabled="{Binding Model.SelectedWorker.IsFilled}" Margin="160,885,0,0" Command="{Binding DeleteWorkerCommand}" FontSize="26" VerticalAlignment="Top" Width="113" Height="47"/>
         <Expander Header="Add worker" Name="expAddWorker"  FontSize="20" HorizontalAlignment="Left" Height="295" Margin="10,79,0,0" VerticalAlignment="Top" Width="408">
             <Grid Background="#FFE5E5E5">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
@@ -48,6 +48,21 @@
                 <CheckBox Content="Admin" IsChecked="{Binding Model.WorkerToAdd.Admin}" HorizontalAlignment="Left" Margin="167,121,0,0" VerticalAlignment="Top"/>
             </Grid>
         </Expander>
+        <Expander Header="Edit Worker" Name="expEditWorker" IsEnabled="{Binding Model.SelectedWorker.IsFilled}" HorizontalAlignment="Left" Height="268" Margin="423,79,0,0" VerticalAlignment="Top" Width="400">
+            <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox Text="{Binding Model.SelectedWorker.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,0,0" HorizontalAlignment="Left" Width="120"/>
+                    <Label Content="Age" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
+                    <TextBox Text="{Binding Model.SelectedWorker.Age}" HorizontalAlignment="Left" Height="30" Margin="10,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="City" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top"/>
+                    <Button  Content="Save"  Command="{Binding EditWorkerCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="292,205,0,0"/>
+                    <ComboBox ItemsSource="{Binding Path=Model.Cities}" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding Path=Model.SelectedWorker.City}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="167,52,0,0" VerticalAlignment="Top" Width="120"/>
+                    <CheckBox Content="Admin" IsChecked="{Binding Model.SelectedWorker.Admin}" HorizontalAlignment="Left" Margin="167,121,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </Grid>
+        </Expander>
+        <Button Content="Edit" HorizontalAlignment="Left" IsEnabled="{Binding Model.SelectedWorker.IsFilled}" Name="btnOpenEditExp" FontSize="26" Margin="10,885,0,0" VerticalAlignment="Top" Width="115" Height="47" Click="btnOpenEditExp_Click"/>
 
     </Grid>
 </Page>

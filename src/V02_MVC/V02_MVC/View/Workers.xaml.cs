@@ -28,6 +28,16 @@ namespace V02_MVC.View
             c = (WorkersController)DataContext;
             c.Model.PropertyChanged += Model_AddWorker;
             c.Model.PropertyChanged += Model_DeleteWorker;
+            c.Model.PropertyChanged += Model_EditWorker;
+        }
+
+        private void Model_EditWorker(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "EditWorker")
+            {
+                expEditWorker.IsExpanded = false;
+                MessageBox.Show("Successfully edited worker");
+            }
         }
 
         private void Model_DeleteWorker(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -45,6 +55,11 @@ namespace V02_MVC.View
                 expAddWorker.IsExpanded = false;
                 MessageBox.Show("Successfully added worker");
             }
+        }
+
+        private void btnOpenEditExp_Click(object sender, RoutedEventArgs e)
+        {
+            expEditWorker.IsExpanded = true;
         }
     }
 }

@@ -93,6 +93,20 @@ namespace V02_MVC.Model
             }
         }
 
+        public bool IsFilled
+        {
+            get
+            {
+                if(Name == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
         public object GetObject()
         {
             int IsAdmin = 0;

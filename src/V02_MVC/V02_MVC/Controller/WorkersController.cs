@@ -13,7 +13,7 @@ namespace V02_MVC.Controller
 
         public DelegateCommand AddWorkerCommand { get; }
         public DelegateCommand DeleteWorkerCommand { get; }
-        public DelegateCommand UpdateWorkerCommand { get;  }
+        public DelegateCommand EditWorkerCommand { get;  }
 
         public WorkersController()
         {
@@ -21,6 +21,7 @@ namespace V02_MVC.Controller
 
             AddWorkerCommand = new DelegateCommand(Model.WorkerToAdd, (_) => Model.AddWorker(), e => 0 == 0);
             DeleteWorkerCommand = new DelegateCommand(Model.SelectedWorker, (_) => Model.DeleteWorker(), e => 0 == 0);
+            EditWorkerCommand = new DelegateCommand(Model.SelectedWorker, (_) => Model.EditWorker(), e => 0 == 0); 
         }
     }
 }

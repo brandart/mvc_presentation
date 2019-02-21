@@ -45,9 +45,9 @@
 
             </Grid>
         </Expander>
-        <Button Content="Delete" Command="{Binding DeleteCustomerCommand}" HorizontalAlignment="Left" Margin="139,761,0,0" VerticalAlignment="Top" Width="96" FontSize="26" Height="41"/>
-        <Button Content="Edit" Name="btnOpenEditExp" HorizontalAlignment="Left" Margin="10,761,0,0" VerticalAlignment="Top" Width="92" FontSize="26" Height="41" Click="btnOpenEditExp_Click"/>
-        <Expander Header="Edit Customer" Name="expEditCustomer" FontSize="20" HorizontalAlignment="Left" Height="258" Margin="393,92,0,0" VerticalAlignment="Top" Width="339">
+        <Button Content="Delete" Command="{Binding DeleteCustomerCommand}" IsEnabled="{Binding Model.SelectedCustomer.IsFilled}" HorizontalAlignment="Left" Margin="139,761,0,0" VerticalAlignment="Top" Width="96" FontSize="26" Height="41"/>
+        <Button Content="Edit" Name="btnOpenEditExp" HorizontalAlignment="Left" IsEnabled="{Binding Model.SelectedCustomer.IsFilled}" Margin="10,761,0,0" VerticalAlignment="Top" Width="92" FontSize="26" Height="41" Click="btnOpenEditExp_Click"/>
+        <Expander Header="Edit Customer" Name="expEditCustomer" IsEnabled="{Binding Model.SelectedCustomer.IsFilled}" FontSize="20" HorizontalAlignment="Left" Height="258" Margin="393,92,0,0" VerticalAlignment="Top" Width="339">
             <Grid Background="#FFE5E5E5">
                 <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <TextBox Text="{Binding Model.SelectedCustomer.Name}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,49,230,0"/>

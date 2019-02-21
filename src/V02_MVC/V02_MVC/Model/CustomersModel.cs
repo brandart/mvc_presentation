@@ -76,9 +76,7 @@ namespace V02_MVC.Model
         public async void EditCustomer()
         {
             var stringPayload = await Task.Run(() => JsonConvert.SerializeObject(_selectedCustomer.GetObject()));
-
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
-
             var response = await Dal.PutAsync(RestUrl + _selectedCustomer.IdCustomer, httpContent);
             if (response.IsSuccessStatusCode)
             {
