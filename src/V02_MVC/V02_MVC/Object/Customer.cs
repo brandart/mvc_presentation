@@ -89,11 +89,8 @@ namespace V02_MVC.Object
             }
             set
             {
-                if(_city != value)
-                {
-                    _city = value;
-                    RaisePropertyChanged("City");
-                }
+                _city = value;
+                RaisePropertyChanged("City");
             }
         }
 

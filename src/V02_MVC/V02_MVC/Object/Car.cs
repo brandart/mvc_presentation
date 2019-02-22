@@ -25,6 +25,14 @@ namespace V02_MVC.Model
             }
         }
 
+        public string DisplayString
+        {
+            get
+            {
+                return Name + " " + Description;
+            }
+        }
+
         public int IdCar
         {
             get

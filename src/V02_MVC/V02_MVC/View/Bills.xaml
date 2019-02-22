@@ -1,0 +1,57 @@
+﻿<Page x:Class="V02_MVC.View.Bills"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:V02_MVC.View"
+      xmlns:contrl="clr-namespace:V02_MVC.Controller"
+      mc:Ignorable="d" 
+      d:DesignHeight="1200" d:DesignWidth="1920"
+      Title="Bills">
+    <Page.DataContext>
+        <contrl:BillsController></contrl:BillsController>
+    </Page.DataContext>
+    <Grid>
+        <Label Content="Bills" HorizontalAlignment="Center" Margin="10,10,0,0" FontSize="36" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ListBox HorizontalAlignment="Left" SelectedItem="{Binding Model.SelectedBill}" ItemsSource="{Binding Model.Bills}" Height="438" VerticalAlignment="Top" Width="995" Margin="10,151,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{Binding Date, StringFormat=dd-MM-yyyy}" />
+                        <TextBlock Grid.Column="1" Text="{Binding Discount}" />
+
+                        <TextBlock Grid.Column="2" Text="{Binding Customer.Name}" />
+                        <TextBlock Grid.Column="3" Text="{Binding Car.Name}" />
+                        <TextBlock Grid.Column="4" Text="{Binding Car.Description}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Label Content="Revenue" FontSize="26" HorizontalAlignment="Left" Margin="1684,118,0,0" VerticalAlignment="Top"/>
+        <Expander Header="add Bill" Name="expAddBill" HorizontalAlignment="Left" FontSize="20" Height="312" Margin="10,94,0,0" VerticalAlignment="Top" Width="484">
+            <Grid Background="#FFE5E5E5">
+                <Label Content="Date" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <TextBox Text="{Binding Model.BillToAdd.Date, StringFormat=dd-MM-yyyy}" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,55,352,0"/>
+                <Label Content="Discount" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
+                <TextBox Text="{Binding Model.BillToAdd.Discount}" HorizontalAlignment="Left" Height="30" Margin="10,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Car" HorizontalAlignment="Left" Margin="167,10,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnAddBill" Content="Save"  Command="{Binding AddBillCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="382,240,0,0"/>
+                <ComboBox ItemsSource="{Binding Path=Model.Cars}" SelectedValue="{Binding Path=Model.BillToAdd.Car}" DisplayMemberPath="DisplayString" HorizontalAlignment="Left" Margin="167,52,0,0" VerticalAlignment="Top" Width="231"/>
+                <Label Content="Customer" HorizontalAlignment="Left" Margin="167,91,0,0" VerticalAlignment="Top"/>
+                <ComboBox ItemsSource="{Binding Path=Model.Customers}" SelectedValue="{Binding Path=Model.BillToAdd.Customer}" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="167,128,0,0" VerticalAlignment="Top" Width="231"/>
+
+            </Grid>
+        </Expander>
+        <Button Content="Cancel bill" IsEnabled="{Binding Model.SelectedBill.IsFilled}" Command="{Binding DeleteBillCommand}" HorizontalAlignment="Left" FontSize="26" Margin="10,594,0,0" VerticalAlignment="Top" Width="138"/>
+        <Label Content="{Binding Model.Revenue}" HorizontalAlignment="Left" FontSize="26" VerticalAlignment="Top" Margin="1684,168,0,0"/>
+
+    </Grid>
+</Page>

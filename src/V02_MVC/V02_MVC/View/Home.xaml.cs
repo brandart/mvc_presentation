@@ -50,5 +50,10 @@ namespace V02_MVC.View
         {
             this.NavigationService.Navigate(new Cities());
         }
+
+        private void btnBills_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Bills());
+        }
     }
 }

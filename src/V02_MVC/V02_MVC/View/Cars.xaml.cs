@@ -30,6 +30,15 @@ namespace V02_MVC.View
             c.Model.PropertyChanged += Model_AddCar;
             c.Model.PropertyChanged += Model_DeleteCar;
             c.Model.PropertyChanged += Model_EditCar;
+            c.Model.PropertyChanged += Model_DeleteCarUn;
+        }
+
+        private void Model_DeleteCarUn(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "DeleteCarUn")
+            {
+                MessageBox.Show("Car coudln't be deleted");
+            }
         }
 
         private void Model_AddCar(object sender, System.ComponentModel.PropertyChangedEventArgs e)

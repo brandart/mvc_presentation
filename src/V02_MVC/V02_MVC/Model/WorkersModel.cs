@@ -69,6 +69,7 @@ namespace V02_MVC.Model
                 Workers.Add(WorkerToAdd);
                 RaisePropertyChanged("AddWorker");
                 WorkerToAdd = new Worker();
+                RaisePropertyChanged("WorkerToAdd");
             }
         }
 
@@ -79,7 +80,7 @@ namespace V02_MVC.Model
             {
                 Workers.Remove(_selectedWorker);
                 RaisePropertyChanged("DeleteWorker");
-                _selectedWorker = new Worker();
+                SelectedWorker = new Worker();
             }
         }
 

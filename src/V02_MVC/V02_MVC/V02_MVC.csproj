@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\BillsController.cs" />
     <Compile Include="Controller\CarsController.cs" />
     <Compile Include="Controller\CitiesController.cs" />
     <Compile Include="Controller\CustomersController.cs" />
@@ -65,17 +66,22 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\WorkersController.cs" />
     <Compile Include="DAL\MyDAL.cs" />
+    <Compile Include="Model\BillsModel.cs" />
     <Compile Include="Model\CarsModel.cs" />
     <Compile Include="Model\CitiesModel.cs" />
     <Compile Include="Model\CustomersModel.cs" />
     <Compile Include="Model\WorkersModel.cs" />
     <Compile Include="MyObservableCollection.cs" />
+    <Compile Include="Object\Bill.cs" />
     <Compile Include="Object\Car.cs" />
     <Compile Include="Object\City.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Object\Customer.cs" />
     <Compile Include="Object\Worker.cs" />
     <Compile Include="ObservableObject.cs" />
+    <Compile Include="View\Bills.xaml.cs">
+      <DependentUpon>Bills.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Cars.xaml.cs">
       <DependentUpon>Cars.xaml</DependentUpon>
     </Compile>
@@ -106,6 +112,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Bills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Cars.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

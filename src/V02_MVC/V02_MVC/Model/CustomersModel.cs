@@ -70,6 +70,8 @@ namespace V02_MVC.Model
             {
                 Customers.Add(CustomerToAdd);
                 RaisePropertyChanged("AddCustomer");
+                CustomerToAdd = new Customer();
+                RaisePropertyChanged("CustomerToAdd");
             }
         }
 
@@ -91,7 +93,8 @@ namespace V02_MVC.Model
             {
                 Customers.Remove(_selectedCustomer);
                 RaisePropertyChanged("DeleteCustomer");
-                _selectedCustomer = new Customer();
+                SelectedCustomer = new Customer();
+                
             } else
             {
                 RaisePropertyChanged("DeleteCustomerUn");

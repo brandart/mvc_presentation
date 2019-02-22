@@ -10,7 +10,7 @@
       >
 
     <Grid HorizontalAlignment="Center" Height="1200" Width="1920" >
-        <Button x:Name="btnBills" Content="Bills" Margin="870,348,870,0" FontSize="24" VerticalAlignment="Top" Height="90"/>
+        <Button x:Name="btnBills" Content="Bills" Margin="870,348,870,0" FontSize="24" VerticalAlignment="Top" Height="90" Click="btnBills_Click"/>
         <Button x:Name="btnCars" Content="Cars" Margin="870,158,0,0" Click="btnCars_Click" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Height="90" Width="180"/>
         <Button x:Name="btnCustomers" Content="Customers" Margin="870,253,0,0" Click="btnCustomers_Click" FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Left" Height="90" Width="180"/>
         <Button x:Name="btnWorkers" Content="Workers" HorizontalAlignment="Left" Margin="870,443,0,0" Width="180" Click="btnWorkers_Click" FontSize="24" VerticalAlignment="Top" Height="90"/>

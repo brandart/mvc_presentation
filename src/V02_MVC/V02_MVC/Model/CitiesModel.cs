@@ -67,7 +67,9 @@ namespace V02_MVC.Model
                 Cities.Add(CityToAdd);
                 RaisePropertyChanged("AddCity");
                 CityToAdd = new City();
-            }else
+                RaisePropertyChanged("CityToAdd");
+            }
+            else
             {
                 RaisePropertyChanged("AddCityUn");
             }

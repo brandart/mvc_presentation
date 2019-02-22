@@ -68,6 +68,7 @@ namespace V02_MVC.Model
                 Cars.Add(CarToAdd);
                 RaisePropertyChanged("AddCar");
                 CarToAdd = new Car();
+                RaisePropertyChanged("CarToAdd");
             }
         }
 
@@ -79,6 +80,10 @@ namespace V02_MVC.Model
                 Cars.Remove(_selectedCar);
                 RaisePropertyChanged("DeleteCar");
                 SelectedCar = new Car();
+            }
+            else
+            {
+                RaisePropertyChanged("DeleteCarUn");
             }
         }
 
