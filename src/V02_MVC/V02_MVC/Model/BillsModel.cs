@@ -71,6 +71,16 @@ namespace V02_MVC.Model
         {
             Dal = MyDAL.Instance;
             InitData();
+            this.PropertyChanged += Model_Calculate;
+        }
+
+        private void Model_Calculate(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if(e.PropertyName == "Calculate")
+            {
+                CalculateTopCustomer();
+                CalculateTopCar();
+            }
         }
 
         private async void InitData()
@@ -125,8 +135,7 @@ namespace V02_MVC.Model
                 RaisePropertyChanged("AddBill");
                 Revenue += BillToAdd.Car.Price - BillToAdd.Discount;
                 RaisePropertyChanged("Revenue");
-                CalculateTopCustomer();
-                CalculateTopCar();
+                RaisePropertyChanged("Caluclate");
                 BillToAdd = new Bill();
                 RaisePropertyChanged("BillToAdd");
 
@@ -175,8 +184,7 @@ namespace V02_MVC.Model
                 Revenue -= _selectedBill.Car.Price - _selectedBill.Discount;
                 RaisePropertyChanged("Revenue");
                 Bills.Remove(_selectedBill);
-                CalculateTopCustomer();
-                CalculateTopCar();
+                RaisePropertyChanged("Calculate");
                 RaisePropertyChanged("DeleteBill");
 
                 SelectedBill = new Bill();
