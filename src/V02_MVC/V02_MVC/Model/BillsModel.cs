@@ -37,6 +37,33 @@ namespace V02_MVC.Model
             }
         
         }
+        private Car _topCar;
+        public Car TopCar
+        {
+            get
+            {
+                return _topCar;
+            }
+            set
+            {
+                _topCar = value;
+                RaisePropertyChanged("TopCar");
+            }
+        }
+
+        private Customer _topCustomer;
+        public Customer TopCustomer
+        {
+            get
+            {
+                return _topCustomer;
+            }
+            set
+            {
+                _topCustomer = value;
+                RaisePropertyChanged("TopCustomer");
+            }
+        }
 
         private MyDAL Dal;
         public double Revenue { get; private set; }
@@ -67,6 +94,10 @@ namespace V02_MVC.Model
             Cars = new ObservableCollection<Car>(temp3);
             Revenue = 0.0;
             CalculateRevenue();
+            _topCustomer = new Customer();
+            _topCar = new Car();
+            CalculateTopCustomer();
+            CalculateTopCar();
 
             BillToAdd = new Bill();
             _selectedBill = new Bill();
@@ -94,10 +125,45 @@ namespace V02_MVC.Model
                 RaisePropertyChanged("AddBill");
                 Revenue += BillToAdd.Car.Price - BillToAdd.Discount;
                 RaisePropertyChanged("Revenue");
+                CalculateTopCustomer();
+                CalculateTopCar();
                 BillToAdd = new Bill();
                 RaisePropertyChanged("BillToAdd");
 
             }
+        }
+        private void CalculateTopCar()
+        {
+            Dictionary<string, int> map = new Dictionary<string, int>();
+
+            foreach (var c in Cars)
+            {
+                map.Add(c.DisplayString, 0);
+            }
+            foreach (var b in Bills)
+            {
+                map[b.Car.DisplayString]++;
+            }
+            var s = map.Aggregate((l, r) => l.Value > r.Value ? l : r).Key;
+            var t = Cars.Where(x => x.DisplayString == s);
+            TopCar = t.ToList().First();
+        }
+
+        private void CalculateTopCustomer()
+        {
+            Dictionary<string, int> map = new Dictionary<string, int>();
+            
+            foreach(var c in Customers)
+            {
+                map.Add(c.Name, 0);
+            }
+            foreach(var b in Bills)
+            {
+                map[b.Customer.Name]++;
+            }
+            var s = map.Aggregate((l, r) => l.Value > r.Value ? l : r).Key;
+            var t = Customers.Where(x => x.Name == s);
+            TopCustomer = t.ToList().First();
         }
 
 
@@ -109,6 +175,8 @@ namespace V02_MVC.Model
                 Revenue -= _selectedBill.Car.Price - _selectedBill.Discount;
                 RaisePropertyChanged("Revenue");
                 Bills.Remove(_selectedBill);
+                CalculateTopCustomer();
+                CalculateTopCar();
                 RaisePropertyChanged("DeleteBill");
 
                 SelectedBill = new Bill();

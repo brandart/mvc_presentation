@@ -26,7 +26,6 @@ namespace V02_MVC.View
         public Home(Worker b)
         {
             InitializeComponent();
-            btnLogEntries.IsEnabled = b.Admin;
             btnWorkers.IsEnabled = b.Admin;
 
         }
