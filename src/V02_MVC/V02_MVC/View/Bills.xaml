@@ -51,7 +51,7 @@
             </Grid>
         </Expander>
         <Button Content="Cancel bill" IsEnabled="{Binding Model.SelectedBill.IsFilled}" Command="{Binding DeleteBillCommand}" HorizontalAlignment="Left" FontSize="26" Margin="10,594,0,0" VerticalAlignment="Top" Width="138"/>
-        <Label Content="{Binding Model.Revenue}" HorizontalAlignment="Left" FontSize="26" VerticalAlignment="Top" Margin="1552,174,0,0"/>
+        <Label Content="{Binding Model.Revenue}" ContentStringFormat="c" HorizontalAlignment="Left" FontSize="26" VerticalAlignment="Top" Margin="1552,174,0,0"/>
         <Label Content="Top Customer" FontSize="26" HorizontalAlignment="Left" Margin="1552,262,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="{Binding Model.TopCustomer.Name}" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1552,312,0,0"/>
         <Label Content="Top Car" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1552,386,0,0" FontWeight="Bold"/>
